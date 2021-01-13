@@ -1,0 +1,515 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>第5章 使用MongoDB和Mongoskin来集成数据 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="chapter8-使用Express和Hapi构建REST-API.html" />
+    
+    
+    <link rel="prev" href="chapter2-使用Express开发Node.js应用.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="chapter1-环境和基础.html">
+            
+                <a href="chapter1-环境和基础.html">
+            
+                    
+                    第1章 环境和基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="chapter2-使用Express开发Node.js应用.html">
+            
+                <a href="chapter2-使用Express开发Node.js应用.html">
+            
+                    
+                    第2章 Express使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4" data-path="chapter5-使用MongoDB和Mongoskin来集成数据.html">
+            
+                <a href="chapter5-使用MongoDB和Mongoskin来集成数据.html">
+            
+                    
+                    第5章 使用MongoDB和Mongoskin来集成数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="chapter8-使用Express和Hapi构建REST-API.html">
+            
+                <a href="chapter8-使用Express和Hapi构建REST-API.html">
+            
+                    
+                    第8章 使用Express和Hapi构建REST API
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >第5章 使用MongoDB和Mongoskin来集成数据</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x4F7F;&#x7528;mongodb&#x548C;mongoskin&#x6765;&#x96C6;&#x6210;&#x6570;&#x636E;">&#x4F7F;&#x7528;MongoDB&#x548C;Mongoskin&#x6765;&#x96C6;&#x6210;&#x6570;&#x636E;</h1>
+<p>NoSQL databases (DBs), also called non-relational databases, are more horizontally scalable, and better suited for distributed systems than traditional SQL ones (a.k.a., RDMBS). </p>
+<p>The key distinction in implementation of apps with NoSQL DBs comes from the fact that NoSQL DBs are schema-less. There&apos;s no table, just a simple store indexed by IDs. </p>
+<p>Another good reason to use NoSQL databases is that, because they are schema-less. I can quickly prototype prototyping and iterate (more git pushes!). </p>
+<p>In addition to efficiency, scalability, and lightning speed, MongoDB has a JavaScript interface! This alone is magical, because now there&apos;s no need to switch context between the front end (browser JavaScript), back end (Node.js), and database (MongoDB). This is my favorite feature because in 90% of my projects I don&apos;t handle that my data or traffic, but I used the JavaScript interface all the time.</p>
+<h2 id="easy-and-proper-installation-of-mongodb">Easy and proper installation of MongoDB</h2>
+<p>The following steps are better suited for macOS/Linux&#x2013;based systems.</p>
+<p>The HomeBrew installation is recommended and is the easiest path (assuming macOS users have brew installed already, which was covered in Chapter 1):</p>
+<pre><code>$ brew install mongodb
+$ brew tap mongodb/brew
+$ brew install mongodb-community@4.2
+</code></pre><p>To run MongoDB (i.e. the mongod process) as a macOS service, issue the following:</p>
+<pre><code>$ brew services start mongodb-community@4.2
+</code></pre><p>&#x3001;</p>
+<h2 id="how-to-run-the-mongo-server">How to run the Mongo server</h2>
+<p>To run the Mongo server there&apos;s the mongod command.</p>
+<pre><code>$ mongod
+</code></pre><p>To run MongoDB manually as a background process, issue the following:</p>
+<pre><code>$ mongod --config /usr/local/etc/mongod.conf --fork
+</code></pre><p>To verify that MongoDB is running, search for mongod in your running processes:</p>
+<pre><code>$ ps aux | grep -v grep | grep mongod
+</code></pre><h2 id="data-manipulation-from-the-mongo-console">Data manipulation from the Mongo console</h2>
+<pre><code>$ mongo
+&gt; db.test.save( { a: 1 } )
+&gt; db.test.find()
+</code></pre><h2 id="mongodb-shell-in-detail">MongoDB shell in detail</h2>
+<p>Let&apos;s take a look at the most useful MongoDB console (shell) commands, which I listed here:</p>
+<ul>
+<li><blockquote>
+<p><code>help</code>: prints a list of available commands</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p><code>show dbs</code>: prints the names of the databases on the database server to which the console is connected (by default, localhost:27017; but, if we pass params to mongo, we can connect to any remote instance)</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p><code>use db_name</code>: switches to db_name</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p><code>show collections</code>: prints a list of collections in the selected database</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p><code>db.collection_name.find(query)</code>: finds all items matching query</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p><code>db.collection_name.findOne(query)</code>: finds one item that matches query</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p><code>db.collection_name.insert(document)</code>: adds a document to the collection_name collection</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p><code>db.collection_name.save(document)</code>: saves a document in the collection_name collection&#x2014;a shorthand of upsert (no _id) or insert (with _id)</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p><code>db.collection_name.update(query,{$set: data})</code>: updates items that match query in the collection_name collection with data object values</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p><code>db.collection_name.remove(query)</code>; removes all items from collection_name that match query criteria</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p><code>printjson(document)</code>: prints the variable document</p>
+</blockquote>
+</li>
+</ul>
+<p>For the purpose of saving time, the API listed here is the bare minimum to get by with MongoDB in this book and its projects. </p>
+<p>It&apos;s possible to use good old JavaScript:</p>
+<pre><code>&gt; var a = db.messages.findOne()
+&gt; printjson(a)
+&gt; a.text = &quot;hi&quot;
+&gt; printjson(a)
+&gt; db.messages.save(a)
+</code></pre><p>If you have <code>_id</code>, then the document will be updated. When there&apos;s no <code>_id</code> will insert a new document, save() works like an upsert (update or insert).</p>
+<h3 id="mongoui">MongoUI</h3>
+<p>I created MongoUI, which is a web-based database admin interface. It allows you to view, edit, search, remove MongoDB documents without typing commands. Check out MongoUI at <a href="https://github.com/azat-co/mongoui" target="_blank">https://github.com/azat-co/mongoui</a>. You can install MongoUI with npm by executing nmp i -g mongoui and then start it with mongoui. It&apos;ll open the app in your default browser and connect to your local DB instance (if there&apos;s one).</p>
+<h3 id="compass">Compass</h3>
+<p>For an even better desktop tool than my own MongoUI, download Compass at <a href="https://www.mongodb.com/products/compass" target="_blank">https://www.mongodb.com/products/compass</a>. It&apos;s built in Node using Electron and React.</p>
+<h3 id="mongoimport">mongoimport</h3>
+<p>One more useful MongoDB command (script) is mongoimport. Use mongoimport. Here&apos;s an example of how to inject a data from a JSON file with an array of object:</p>
+<pre><code>mongoimport --db dbName --collection collectionName --file fileName.json --jsonArray
+</code></pre><p>ou don&apos;t need to do anything extra to install mongoimport. It&apos;s already part of the MongoDB installation and lives in the same folder as mongodb or mongo.</p>
+<h2 id="minimalistic-native-mongodb-driver-for-nodejs-example">Minimalistic native MongoDB driver for Node.js example</h2>
+<h3 id="example-to-insert-a-new-item">example to insert a new item</h3>
+<pre><code>const mongo = require(&apos;mongodb&apos;)
+const dbHost = &apos;127.0.0.1&apos;
+const dbPort = 27017
+
+const {Db, Server} = mongo
+const db = new Db(&apos;local&apos;,
+  new Server(dbHost, dbPort),
+  {safe: true}
+)
+// local is the db name
+
+db.open((error, dbConnection) =&gt; {
+  if (error) {
+    console.error(error)
+    return process.exit(1)
+  }
+  console.log(&apos;db state: &apos;, db._state)
+  const item = {
+    name: &apos;Azat&apos;
+  }
+    dbConnection
+      .collection(&apos;messages&apos;)
+      .insert(item, (error, document) =&gt; {
+      if (error) {
+        console.error(error)
+        return process.exit(1)
+      }
+      console.info(&apos;created/inserted: &apos;, document)
+      db.close()
+      process.exit(0)
+      }
+    )
+})
+</code></pre><h3 id="example-to-update-an-item">example to update an item</h3>
+<pre><code>const mongo = require(&apos;mongodb&apos;)
+const dbHost = &apos;127.0.0.1&apos;
+const dbPort = 27017
+const {Db, Server} = mongo
+const db = new Db(&apos;local&apos;, new Server(dbHost, dbPort), {safe: true})
+
+db.open((error, dbConnection) =&gt; {
+  if (error) {
+    console.error(error)
+    process.exit(1)
+  }
+  console.log(&apos;db state: &apos;, db._state)
+
+  dbConnection.collection(&apos;messages&apos;).findOne({}, (error, item) =&gt; {
+    if (error) {
+      console.error(error)
+      process.exit(1)
+    }
+    console.info(&apos;findOne: &apos;, item)
+
+    item.text = &apos;hi&apos;
+    var id = item._id.toString() // we can store ID in a string
+    console.info(&apos;before saving: &apos;, item)
+    dbConnection
+      .collection(&apos;messages&apos;)
+      .save(item, (error, document) =&gt; {
+        if (error) {
+          console.error(error)
+          return process.exit(1)
+        }
+        console.info(&apos;save: &apos;, document)
+        dbConnection.collection(&apos;messages&apos;)
+          .find({_id: new mongo.ObjectID(id)})
+          .toArray((error, documents) =&gt; {
+            if (error) {
+              console.error(error)
+              return process.exit(1)
+            }
+            console.info(&apos;find: &apos;, documents)
+            db.close()
+            process.exit(0)
+          }
+        )
+    })
+  })
+});
+</code></pre><p>Callback&apos;s first argument is always an error object even when it&apos;s null. </p>
+<p>To convert a string into the ObjectId type, use mongo.ObjectID() method. </p>
+<h2 id="main-mongoskin-methods">Main Mongoskin methods</h2>
+<p>Mongoskin provides a better API than the native MongoDB driver.</p>
+<p>Compare the following Mongoskin implementation with the example in prior section.</p>
+<pre><code>const mongoskin = require(&apos;mongoskin&apos;)
+const { toObjectID } = mongoskin.helper
+const dbHost = &apos;127.0.0.1&apos;
+const dbPort = 27017
+const db = mongoskin.db(`mongodb://${dbHost}:${dbPort}/local`)
+
+db.bind(&apos;messages&apos;).bind({
+  findOneAndAddText: function (text, fn) { // no fat arrow fn because we need to let bind pass the collection to use this on the next line... this can be replaced with db.messages too
+    this.findOne({}, (error, document) =&gt; {
+      if (error) {
+        console.error(error)
+        return process.exit(1)
+      }
+      console.info(&apos;findOne: &apos;, document)
+      document.text = text
+      var id = document._id.toString() // We can store ID in a string
+      console.info(&apos;before saving: &apos;, document)
+      this.save(document, (error, count) =&gt; {
+        if (error) {
+          console.error(error)
+          return process.exit(1)
+        }
+        console.info(&apos;save: &apos;, count)
+        return fn(count, id)
+      })
+    })
+  }
+})
+
+db.messages.findOneAndAddText(&apos;hi&apos;, (count, id) =&gt; {
+  db.messages.find({
+    _id: toObjectID(id)
+  }).toArray((error, documents) =&gt; {
+    if (error) {
+      console.error(error)
+      return process.exit(1)
+    }
+    console.info(&apos;find: &apos;, documents)
+    db.close()
+    process.exit(0)
+  })
+})
+</code></pre><p>Mongoskin is a subset of the native Node.js MongoDB driver, so most of the methods, as you have observed from the latter are available in the former. </p>
+<p>But there are more methods. Here is the list of the main Mongoskin&#x2013;only methods:</p>
+<ul>
+<li>findItems(..., callback): Finds elements and returns an array instead of a cursor</li>
+<li>findEach(..., callback): Iterates through each found element</li>
+<li>findById(id, ..., callback): Finds by _id in a string format</li>
+<li>updateById(_id, ..., callback): Updates an element with a matching _id</li>
+<li>removeById(_id, ..., callback): Removes an element with a matching _id</li>
+</ul>
+<p>Of course, there are alternatives to Mongoskin and the native MongoDB driver, including but not limited to: <code>mongoose</code>, <code>mongolia</code>, <code>monk</code>.</p>
+<p>For data validation at the Express level, these modules are often used: <code>node-validator</code>, <code>express-validator</code>.</p>
+<h2 id="project-storing-blog-data-in-mongodb-with-mongoskin">Project: Storing Blog data in MongoDB with Mongoskin</h2>
+<p>It provide source code here <a href="https://github.com/azat-co/practicalnode" target="_blank">https://github.com/azat-co/practicalnode</a>, folder <code>code/ch5/blog-expreses</code>.</p>
+<h3 id="project-adding-mongodb-seed-data">Project: Adding MongoDB Seed Data</h3>
+<pre><code>mongoimport --jsonArray --db blog --collection users --file ./db/users.json
+mongoimport --jsonArray --db blog --collection articles --file ./db/articles.json
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="chapter2-使用Express开发Node.js应用.html" class="navigation navigation-prev " aria-label="Previous page: 第2章 Express使用">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="chapter8-使用Express和Hapi构建REST-API.html" class="navigation navigation-next " aria-label="Next page: 第8章 使用Express和Hapi构建REST API">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"第5章 使用MongoDB和Mongoskin来集成数据","level":"1.4","depth":1,"next":{"title":"第8章 使用Express和Hapi构建REST API","level":"1.5","depth":1,"path":"chapter8-使用Express和Hapi构建REST-API.md","ref":"./chapter8-使用Express和Hapi构建REST-API.md","articles":[]},"previous":{"title":"第2章 Express使用","level":"1.3","depth":1,"path":"chapter2-使用Express开发Node.js应用.md","ref":"./chapter2-使用Express开发Node.js应用.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter5-使用MongoDB和Mongoskin来集成数据.md","mtime":"2020-12-28T07:36:56.088Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-13T09:56:42.163Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

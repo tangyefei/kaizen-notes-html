@@ -1,0 +1,392 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>第8章 使用Express和Hapi构建REST API · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="chapter5-使用MongoDB和Mongoskin来集成数据.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="chapter1-环境和基础.html">
+            
+                <a href="chapter1-环境和基础.html">
+            
+                    
+                    第1章 环境和基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="chapter2-使用Express开发Node.js应用.html">
+            
+                <a href="chapter2-使用Express开发Node.js应用.html">
+            
+                    
+                    第2章 Express使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="chapter5-使用MongoDB和Mongoskin来集成数据.html">
+            
+                <a href="chapter5-使用MongoDB和Mongoskin来集成数据.html">
+            
+                    
+                    第5章 使用MongoDB和Mongoskin来集成数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5" data-path="chapter8-使用Express和Hapi构建REST-API.html">
+            
+                <a href="chapter8-使用Express和Hapi构建REST-API.html">
+            
+                    
+                    第8章 使用Express和Hapi构建REST API
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >第8章 使用Express和Hapi构建REST API</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x4F7F;&#x7528;express&#x548C;hapi&#x6784;&#x5EFA;rest-api">&#x4F7F;&#x7528;Express&#x548C;Hapi&#x6784;&#x5EFA;REST API</h1>
+<p>&#x56E0;&#x4E3A;&#x5B83;&#x6240;&#x5177;&#x5907;&#x7684;&#x6709;&#x70B9;&#xFF0C;&#x8F7B;&#x91CF;&#x7684;&#x540E;&#x7AEF;&#x3001;&#x53D8;&#x5F97;&#x66F4;&#x91CD;&#x7684;&#x524D;&#x7AEF;&#xFF0C;&#x6210;&#x4E3A;&#x4E86;&#x4E00;&#x79CD;&#x8D8B;&#x52BF;&#x3002;&#x8003;&#x8651;&#x5230;&#x4E3A;&#x6BCF;&#x4E2A;&#x5E94;&#x7528;&#x642D;&#x5EFA;&#x4E00;&#x4E2A;&#x540E;&#x53F0;&#x6210;&#x672C;&#x8F83;&#x9AD8;&#x4E86;&#xFF0C;&#x624D;&#x6709;&#x4E86;&#x6309;&#x65F6;&#x79DF;&#x8D41;&#x7684;&#x540E;&#x53F0;&#x670D;&#x52A1;&#xFF0C;&#x6BD4;&#x5982;WS Lambda, MongoLab, Firebase, Parse.com&#x3002;</p>
+<p>&#x672C;&#x7AE0;&#x4ECB;&#x7ECD;&#x7684;&#x662F;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x81EA;&#x5DF1;&#x7684;REST&#x670D;&#x52A1;&#xFF0C;&#x5B83;&#x76F8;&#x5BF9;&#x4E8E;&#x79DF;&#x7528;&#x7684;&#x670D;&#x52A1;&#xFF0C;&#x53EF;&#x5B9A;&#x5236;&#x578B;&#x53EF;&#x4EE5;&#x66F4;&#x5F3A;&#x3002;</p>
+<h2 id="restful-api-basics">RESTful API Basics</h2>
+<p>&#x7565;&#x3002;</p>
+<h2 id="project-dependencies">Project Dependencies</h2>
+<pre><code>{
+  &quot;name&quot;: &quot;rest-express&quot;,
+  &quot;version&quot;: &quot;0.2.1&quot;,
+  &quot;description&quot;: &quot;REST API application with Express, Mongoskin, MongoDB, Mocha and Superagent&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;directories&quot;: {
+    &quot;test&quot;: &quot;test&quot;
+  },
+  &quot;scripts&quot;: {
+    &quot;start&quot;: &quot;node index.js&quot;,
+    &quot;test&quot;: &quot;PORT=3007 ./node_modules/.bin/mocha test -R spec&quot;
+  },
+  &quot;author&quot;: &quot;Azat Mardan (http://azat.co/)&quot;,
+  &quot;license&quot;: &quot;MIT&quot;,
+  &quot;dependencies&quot;: {
+    &quot;body-parser&quot;: &quot;1.18.2&quot;,
+    &quot;express&quot;: &quot;4.16.2&quot;,
+    &quot;mongodb&quot;: &quot;2.2.33&quot;,
+    &quot;mongoskin&quot;: &quot;2.1.0&quot;,
+    &quot;morgan&quot;: &quot;1.9.0&quot;
+  }
+}
+</code></pre><h2 id="test-coverage-with-mocha-and-superagent">Test Coverage with Mocha and Superagent</h2>
+<p>&#x7565;&#x3002;</p>
+<h2 id="rest-api-server-implementation-with-express-and-mongoskin">REST API Server Implementation with Express and Mongoskin</h2>
+<p>&#x4E0B;&#x9762;&#x8FD9;&#x5957;&#x4EE3;&#x7801;&#x57FA;&#x672C;&#x53EF;&#x4EE5;&#x6EE1;&#x8DB3;&#x4E00;&#x4E2A;&#x535A;&#x5BA2;&#x7CFB;&#x7EDF;&#x7684;&#x589E;&#x5220;&#x6539;&#x67E5;&#xFF0C;&#x6548;&#x7387;&#x7B80;&#x76F4;&#x4E86;&#x3002;</p>
+<pre><code>const express = require(&apos;express&apos;)
+const mongoskin = require(&apos;mongoskin&apos;)
+const bodyParser = require(&apos;body-parser&apos;)
+const logger = require(&apos;morgan&apos;)
+const http = require(&apos;http&apos;)
+
+const app = express()
+app.use(bodyParser.json())
+app.use(logger())
+app.set(&apos;port&apos;, process.env.PORT || 3000)
+
+const db = mongoskin.db(&apos;mongodb://@localhost:27017/blog&apos;);
+const id = mongoskin.helper.toObjectID;
+
+app.param(&apos;collectionName&apos;, (req, res, next, collectionName) =&gt; {
+  req.collection = db.collection(collectionName)
+  return next()
+})
+
+app.get(&apos;/&apos;, (req, res, next) =&gt; {
+  res.send(&apos;/collections/messages&apos;)
+})
+
+app.get(&apos;/collections/:collectionName&apos;, (req, res, next) =&gt; {
+  req.collection.find({}, {limit: 10, sort: [[&apos;_id&apos;, -1]]})
+    .toArray((e, results) =&gt; {
+      if (e) return next(e)
+      res.send(results)
+    }
+  )
+})
+
+app.post(&apos;/collections/:collectionName&apos;, (req, res, next) =&gt; {
+  // TODO: Validate req.body
+  req.collection.insert(req.body, {}, (e, results) =&gt; {
+    if (e) return next(e)
+    res.send(results.ops)
+  })
+})
+
+app.get(&apos;/collections/:collectionName/:id&apos;, (req, res, next) =&gt; {
+  req.collection.findOne({_id: id(req.params.id)}, (e, result) =&gt; {
+    if (e) return next(e)
+    res.send(result)
+  })
+})
+
+app.put(&apos;/collections/:collectionName/:id&apos;, (req, res, next) =&gt; {
+  req.collection.update({_id: id(req.params.id)},
+    {$set: req.body},
+    {safe: true, multi: false}, (e, result) =&gt; {
+      if (e) return next(e)
+      res.send((result.result.n === 1) ? {msg: &apos;success&apos;} : {msg: &apos;error&apos;})
+    })
+})
+
+app.delete(&apos;/collections/:collectionName/:id&apos;, (req, res, next) =&gt; {
+  req.collection.remove({_id: id(req.params.id)}, (e, result) =&gt; {
+    if (e) return next(e)
+    res.send((result.result.n === 1) ? {msg: &apos;success&apos;} : {msg: &apos;error&apos;})
+  })
+})
+
+const server = http.createServer(app)
+const boot = () =&gt; {
+  server.listen(app.get(&apos;port&apos;), () =&gt; {
+    console.info(`Express server listening 
+      on port ${app.get(&apos;port&apos;)}`)
+  })
+}
+
+const shutdown = () =&gt; {
+  server.close(process.exit)
+}
+
+if (require.main === module) {
+  boot()
+} else {
+  console.info(&apos;Running app as a module&apos;)
+  exports.boot = boot
+  exports.shutdown = shutdown
+  exports.port = app.get(&apos;port&apos;)
+}
+</code></pre><h2 id="refactoring-hapi-rest-api-server">Refactoring: Hapi REST API Server</h2>
+<p>&#x5F85;&#x8865;&#x5145;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="chapter5-使用MongoDB和Mongoskin来集成数据.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 第5章 使用MongoDB和Mongoskin来集成数据">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"第8章 使用Express和Hapi构建REST API","level":"1.5","depth":1,"previous":{"title":"第5章 使用MongoDB和Mongoskin来集成数据","level":"1.4","depth":1,"path":"chapter5-使用MongoDB和Mongoskin来集成数据.md","ref":"./chapter5-使用MongoDB和Mongoskin来集成数据.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter8-使用Express和Hapi构建REST-API.md","mtime":"2020-12-28T07:36:56.088Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-13T09:56:42.163Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

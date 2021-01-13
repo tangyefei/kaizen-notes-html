@@ -1,0 +1,689 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>第20章 客户端存储 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="chapter22-html5-api.html" />
+    
+    
+    <link rel="prev" href="chapter17-event-handler.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    关于知识库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="chapter1-guide.html">
+            
+                <a href="chapter1-guide.html">
+            
+                    
+                    第1章 JavaScript概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="chapter2-syntax.html">
+            
+                <a href="chapter2-syntax.html">
+            
+                    
+                    第2章 词法结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="chapter3-type-and-variables.html">
+            
+                <a href="chapter3-type-and-variables.html">
+            
+                    
+                    第3章 类型、变量、值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="chapter4-expression-and-calculator.html">
+            
+                <a href="chapter4-expression-and-calculator.html">
+            
+                    
+                    第4章 表达式和运算符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="chapter5-statement.html">
+            
+                <a href="chapter5-statement.html">
+            
+                    
+                    第5章 语句
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="chapter6-object.html">
+            
+                <a href="chapter6-object.html">
+            
+                    
+                    第6章 对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="chapter7-array.html">
+            
+                <a href="chapter7-array.html">
+            
+                    
+                    第7章 数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="chapter8-function.html">
+            
+                <a href="chapter8-function.html">
+            
+                    
+                    第8章 函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="chapter9-class.html">
+            
+                <a href="chapter9-class.html">
+            
+                    
+                    第9章 类和模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="chapter10-regexp.html">
+            
+                <a href="chapter10-regexp.html">
+            
+                    
+                    第10章 正则表达式的模式匹配
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="chapter11-subset-extentions.html">
+            
+                <a href="chapter11-subset-extentions.html">
+            
+                    
+                    第11章 JavaScript的子集和扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="chapter12-server-side-javascript.html">
+            
+                <a href="chapter12-server-side-javascript.html">
+            
+                    
+                    第12章 服务端的JavaScript
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="chapter13-javascript-on-browser.html">
+            
+                <a href="chapter13-javascript-on-browser.html">
+            
+                    
+                    第13章 Web浏览器中的JavaScript
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="chapter14-window-object.html">
+            
+                <a href="chapter14-window-object.html">
+            
+                    
+                    第14章 Window对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="chapter17-event-handler.html">
+            
+                <a href="chapter17-event-handler.html">
+            
+                    
+                    第17章 事件处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.17" data-path="chapter20-client-storage.html">
+            
+                <a href="chapter20-client-storage.html">
+            
+                    
+                    第20章 客户端存储
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="chapter22-html5-api.html">
+            
+                <a href="chapter22-html5-api.html">
+            
+                    
+                    第22章 HTML5 API
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >第20章 客户端存储</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x7B2C;20&#x7AE0;-&#x5BA2;&#x6237;&#x7AEF;&#x5B58;&#x50A8;">&#x7B2C;20&#x7AE0; &#x5BA2;&#x6237;&#x7AEF;&#x5B58;&#x50A8;</h1>
+<h2 id="1-localstorage&#x548C;sesisonstorage">1. localStorage&#x548C;sesisonStorage</h2>
+<h3 id="11-&#x4ECB;&#x7ECD;&#x548C;&#x7528;&#x6CD5;">1.1 &#x4ECB;&#x7ECD;&#x548C;&#x7528;&#x6CD5;</h3>
+<p>localStorage&#x548C;sesisonStorage&#x662F;&#x5B9A;&#x4E49;&#x5728;Window&#x5BF9;&#x8C61;&#x4E0B;&#x7684;&#x4E24;&#x4E2A;&#x5C5E;&#x6027;&#xFF0C;&#x4ED6;&#x4EEC;&#x4EE3;&#x8868;&#x90FD;&#x662F;&#x540C;&#x4E00;&#x7C7B;&#x5BF9;&#x8C61;Storage&#x5BF9;&#x8C61;&#xFF0C;&#x5B83;&#x4EEC;&#x548C;&#x666E;&#x901A;&#x7684;JavaScript&#x5BF9;&#x8C61;&#x6CA1;&#x6709;&#x533A;&#x522B;&#x3002;&#x5982;&#x4E0B;&#x7684;&#x65B9;&#x6CD5;&#x9002;&#x7528;&#x4E8E;localStorage&#x548C;sesisonStorage&#x3002;</p>
+<pre><code>var name = localStorage.username;
+name = localStorage[&apos;username&apos;];
+if( !name )  {
+    name = propt(&quot;What is your name?&quot;)
+    localStorage.username = name;
+}
+
+for(var name in localStorage) {
+    var value = localStorage[&apos;name&apos;]
+}
+</code></pre><p>&#x5C3D;&#x7BA1;&#x5982;&#x6B64;&#xFF0C;&#x5B83;&#x8FD8;&#x662F;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E9B;API&#x7528;&#x4E8E;&#x5BF9;&#x5B58;&#x50A8;&#x7684;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#xFF08;&#x4E5F;&#x63A8;&#x8350;&#x8FD9;&#x4E48;&#x505A;&#xFF0C;&#x5177;&#x4F53;&#x539F;&#x56E0;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x8BE5;&#x8282;&#x5185;&#x5BB9;&#xFF09;&#xFF1A;</p>
+<ul>
+<li>setItem(name, value)</li>
+<li>getItem(name)</li>
+<li>clear()</li>
+<li>key(index) // &#x679A;&#x4E3E;&#x7B2C;index&#x4F4D;&#x7F6E;&#x7684;key</li>
+</ul>
+<p>&#x867D;&#x7136;&#x6807;&#x51C6;&#x6307;&#x51FA;&#x53EF;&#x4EE5;&#x5B58;&#x50A8;&#x5BF9;&#x8C61;&#x3001;&#x6570;&#x7EC4;&#x7B49;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x4F46;&#x662F;&#x76EE;&#x524D;&#x4EC5;&#x652F;&#x6301;&#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x8FDB;&#x884C;&#x8F6C;&#x7801;&#x3002;</p>
+<h3 id="12-&#x4E24;&#x8005;&#x7684;&#x533A;&#x522B;&#xFF1A;&#x6709;&#x6548;&#x671F;&#x548C;&#x4F5C;&#x7528;&#x57DF;">1.2 &#x4E24;&#x8005;&#x7684;&#x533A;&#x522B;&#xFF1A;&#x6709;&#x6548;&#x671F;&#x548C;&#x4F5C;&#x7528;&#x57DF;</h3>
+<h4 id="localstorage">localStorage</h4>
+<ul>
+<li>&#x6709;&#x6548;&#x671F;&#xFF1A;&#x6570;&#x636E;&#x6C38;&#x4E45;&#x5B58;&#x50A8;&#xFF0C;&#x9664;&#x975E;&#x523B;&#x610F;&#x5220;&#x9664;&#xFF0C;&#x5426;&#x5219;&#x6C38;&#x4E0D;&#x8FC7;&#x671F;</li>
+<li>&#x4F5C;&#x7528;&#x57DF;&#xFF1A;&#x9650;&#x5B9A;&#x5728;&#x6587;&#x6863;&#x6E90;&#x7EA7;&#x522B;&#xFF08;&#x534F;&#x8BAE;+&#x4E3B;&#x673A;&#x540D;+&#x7AEF;&#x53E3;&#xFF09;&#xFF0C;&#x76F8;&#x540C;&#x6587;&#x6863;&#x6E90;&#x53EF;&#x4EE5;&#x5171;&#x4EAB;&#x6570;&#x636E;&#x5E76;&#x4E14;&#x8986;&#x76D6;&#x5BF9;&#x65B9;&#x6570;&#x636E;</li>
+</ul>
+<p>&#x603B;&#x7ED3;&#xFF1A;<strong>localStorage&#x53EA;&#x8981;<code>&#x534F;&#x8BAE;+&#x4E3B;&#x673A;&#x540D;+&#x7AEF;&#x53E3;</code>&#x4E00;&#x6837;&#xFF0C;&#x5176;&#x4ED6;&#x9875;&#x7B7E;&#x90FD;&#x53EF;&#x89C1;&#xFF0C;&#x5173;&#x4E86;&#x518D;&#x5F00;&#x4ECD;&#x65E7;&#x5728;</strong></p>
+<h4 id="sessionstorage">sessionStorage</h4>
+<ul>
+<li>&#x6709;&#x6548;&#x671F;&#xFF1A;&#x548C;&#x811A;&#x672C;&#x6240;&#x5728;&#x7684;&#x6807;&#x7B7E;&#x9875;&#x4E00;&#x6837;&#xFF0C;&#x4E00;&#x65E6;&#x5173;&#x95ED;&#xFF0C;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x5C06;&#x88AB;&#x5220;&#x9664;</li>
+<li>&#x4F5C;&#x7528;&#x57DF;&#xFF1A;&#x9664;&#x4E86;&#x6587;&#x6863;&#x6E90;&#x7EA7;&#x522B;&#x7684;&#x9650;&#x5236;&#x5916;&#xFF0C;&#x8FD8;&#x88AB;&#x9650;&#x5236;&#x5728;&#x5F53;&#x524D;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x6807;&#x7B7E;&#x9875;&#x4E2D;</li>
+</ul>
+<p>&#x603B;&#x7ED3;&#xFF1A;<strong>sessionStorage&#x5F53;&#x524D;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x6807;&#x7B7E;&#x9875;&#x53EF;&#x7528;&#xFF0C;&#x5173;&#x95ED;&#x5C31;&#x6CA1;&#x4E86;&#xFF0C;&#x5230;&#x5176;&#x4ED6;&#x6807;&#x7B7E;&#x9875;&#x4E5F;&#x770B;&#x4E0D;&#x5230;&#x3002;</strong></p>
+<p>&#x5E94;&#x7528;&#xFF1A;&#x7531;&#x4E8E;&#x5237;&#x65B0;&#x6D4F;&#x89C8;&#x5668;&#x662F;&#x4E0D;&#x4F1A;&#x6E05;&#x9664;&#x6389;&#x7684;&#xFF0C;&#x7F51;&#x9875;&#x64AD;&#x653E;&#x5668;&#x7528;&#x4E8E;&#x6062;&#x590D;&#x8FDB;&#x5EA6;&#x523B;&#x610F;&#x4F7F;&#x7528;&#x5B83;&#xFF0C;&#x4E00;&#x4E9B;&#x4F01;&#x4E1A;&#x7CFB;&#x7EDF;&#x5237;&#x65B0;&#x540E;&#x5E0C;&#x671B;&#x4FDD;&#x7559;&#x5185;&#x90E8;&#x9875;&#x7B7E;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x3002;</p>
+<h2 id="2-cookie">2. cookie</h2>
+<h3 id="&#x5C40;&#x9650;&#x6027;">&#x5C40;&#x9650;&#x6027;</h3>
+<p>cookie&#x6700;&#x65E9;&#x662F;&#x8BBE;&#x8BA1;&#x7ED9;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x4F7F;&#x7528;&#x7684;&#x3002;&#x56E0;&#x4E3A;cookie&#x4E0D;&#x4F1A;&#x91C7;&#x7528;&#x4EFB;&#x4F55;&#x52A0;&#x5BC6;&#x673A;&#x5236;&#xFF0C;&#x56E0;&#x6B64;&#x5B83;&#x4EEC;&#x662F;&#x4E0D;&#x5B89;&#x5168;&#x7684;&#x3002;</p>
+<p><strong>&#x601D;&#x8003;&#xFF1A;&#x5982;&#x4F55;&#x4FDD;&#x8BC1;cookie&#x7684;&#x5B89;&#x5168;&#x5462;&#xFF1F;</strong></p>
+<p>&#x4F46;&#x662F;&#x901A;&#x8FC7;https&#x4F20;&#x8F93;cookie&#x662F;&#x5B89;&#x5168;&#x7684;&#xFF0C;&#x4E0D;&#x8FC7;&#x8FD9;&#x548C;cookie&#x672C;&#x8EAB;&#x65E0;&#x5173;&#xFF0C;&#x800C;&#x548C;<code>https:</code>&#x534F;&#x8BAE;&#x76F8;&#x5173;&#x3002;</p>
+<p>&#x8BBE;&#x8BA1;&#x521D;&#x8877;&#x662F;&#x7ED9;&#x670D;&#x52A1;&#x5668;&#x811A;&#x672C;&#x7528;&#x6765;&#x5B58;&#x50A8;&#x5C11;&#x91CF;&#x6570;&#x636E;&#x7684;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x4E0D;&#x5141;&#x8BB8;&#x4FDD;&#x5B58;&#x8D85;&#x8FC7;300&#x4E2A;cookie&#xFF0C;&#x4E3A;&#x5355;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#x4FDD;&#x5B58;&#x5230;cookie&#x4E0D;&#x80FD;&#x8D85;&#x8FC7;20&#x4E2A;&#xFF0C;&#x800C;&#x4E14;&#x6BCF;&#x4E2A;cookie&#x4FDD;&#x5B58;&#x7684;&#x6570;&#x636E;&#x4E0D;&#x80FD;&#x8D85;&#x8FC7;4KB&#xFF08;&#x540D;&#x548C;&#x503C;&#x7684;&#x603B;&#x91CF;&#x4E0D;&#x80FD;&#x8D85;&#x8FC7;4KB&#xFF09;&#x3002;&#x5C3D;&#x7BA1;&#x73B0;&#x4EE3;&#x6D4F;&#x89C8;&#x5668;&#x5C06;300&#x4E2A;&#x7684;&#x603B;&#x6570;&#x9650;&#x5236;&#x53BB;&#x9664;&#x4E86;&#xFF0C;&#x4F46;&#x662F;4KB&#x5927;&#x5C0F;&#x5927;&#x5C0F;&#x9650;&#x5236;&#x4ECD;&#x65E7;&#x5B58;&#x5728;&#x3002;</p>
+<p>&#x64CD;&#x4F5C;cookie&#x7684;API&#x5F88;&#x65E9;&#x5C31;&#x5B9A;&#x4E49;&#x548C;&#x5B9E;&#x73B0;&#x4E86;&#xFF0C;&#x4F46;&#x662F;&#x6839;&#x672C;&#x6CA1;&#x6709;&#x63D0;&#x4F9B;&#x8BF8;&#x5982;&#x67E5;&#x8BE2;&#x3001;&#x8BBE;&#x7F6E;&#x3001;&#x5220;&#x9664;cookie&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x6240;&#x6709;&#x8FD9;&#x4E9B;&#x64CD;&#x4F5C;&#x90FD;&#x901A;&#x8FC7;&#x4EE5;&#x7279;&#x6B8A;&#x683C;&#x5F0F;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x8BFB;&#x5199;Document&#x5BF9;&#x8C61;&#x7684;cookie&#x5C5E;&#x6027;&#x6765;&#x5B8C;&#x6210;&#x3002;</p>
+<p>&#x672C;&#x8282;&#x4ECB;&#x7ECD;&#x5982;&#x4F55;&#x4F7F;&#x7528;Document&#x5BF9;&#x8C61;&#x7684;cookie&#x5C5E;&#x6027;&#x5B9E;&#x73B0;&#x5BF9;cookie&#x7684;&#x64CD;&#x4F5C;&#x3002;</p>
+<h3 id="&#x68C0;&#x6D4B;cookie&#x662F;&#x5426;&#x4F7F;&#x7528;">&#x68C0;&#x6D4B;cookie&#x662F;&#x5426;&#x4F7F;&#x7528;</h3>
+<p>&#x5728;JavaScript&#x4EE3;&#x7801;&#x4E2D;&#x4F7F;&#x7528;cookie&#x524D;&#xFF0C;&#x9700;&#x8981;&#x786E;&#x4FDD;cookie&#x662F;&#x542F;&#x7528;&#x7684;&#x3002;</p>
+<p><code>navigator.cookieEnabled</code>&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x5982;&#x679C;&#x4E3A;true&#x5219;&#x662F;&#x542F;&#x7528;&#x7684;&#xFF0C;&#x53CD;&#x4E4B;&#x5219;&#x662F;&#x7981;&#x7528;&#x7684;&#x3002;</p>
+<p>&#x5728;&#x4E0D;&#x652F;&#x6301;&#x8BE5;&#x5C5E;&#x6027;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x4E0A;&#xFF0C;&#x8FD8;&#x662F;&#x8981;&#x7528;&#x5177;&#x4F53;&#x7684;&#x6280;&#x672F;&#x53BB;&#x8BFB;&#x3001;&#x5199;&#x3001;&#x5220;&#x9664;cookie&#x6765;&#x770B;&#x6D4F;&#x89C8;&#x652F;&#x6301;&#x662F;&#x5426;&#x652F;&#x6301;cookie&#x3002;</p>
+<h3 id="&#x6709;&#x6548;&#x671F;">&#x6709;&#x6548;&#x671F;</h3>
+<p>cookie&#x9ED8;&#x8BA4;&#x7684;&#x6709;&#x6548;&#x671F;&#x5F88;&#x77ED;&#xFF0C;&#x4E00;&#x65E6;&#x7528;&#x6237;&#x5173;&#x95ED;&#x6D4F;&#x89C8;&#x5668;&#xFF0C;cookie&#x4FDD;&#x5B58;&#x7684;&#x6570;&#x636E;&#x5C31;&#x4E22;&#x5931;&#x4E86;&#xFF0C;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF1A;cookie&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x6574;&#x4E2A;&#x6D4F;&#x89C8;&#x5668;&#x8FDB;&#x7A0B;&#x6709;&#x5173;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5355;&#x4E2A;&#x6D4F;&#x89C8;&#x5668;&#x7A97;&#x53E3;&#x6709;&#x5173;&#x3002;</p>
+<p>&#x60F3;&#x8981;cookie&#x5EF6;&#x957F;&#x6709;&#x6548;&#x671F;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BBE;&#x7F6E;max-age&#x5C5E;&#x6027;&#xFF08;&#x5355;&#x4F4D; &#x662F;&#x79D2;&#xFF09;&#xFF0C;&#x4E00;&#x65E6;&#x8BBE;&#x7F6E;&#x4E86;&#x6709;&#x6548;&#x671F;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x5C31;&#x4F1A;&#x5C06;cookie&#x5B58;&#x50A8;&#x5728;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x5E76;&#x76F4;&#x5230;&#x8FC7;&#x4E86;&#x6709;&#x6548;&#x671F;&#x624D;&#x4F1A;&#x5220;&#x9664;&#x8BE5;&#x6587;&#x4EF6;&#x3002;</p>
+<h3 id="&#x4F5C;&#x7528;&#x57DF;">&#x4F5C;&#x7528;&#x57DF;</h3>
+<p>cookie&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x662F;&#x901A;&#x8FC7;&#x6587;&#x6863;&#x6E90;&#x548C;&#x6587;&#x6863;&#x8DEF;&#x5F84;&#x6765;&#x786E;&#x5B9A;&#x7684;&#xFF0C;&#x8BE5;&#x4F5C;&#x7528;&#x57DF;&#x901A;&#x8FC7;cookie&#x7684;path&#x548C;domain&#x5C5E;&#x6027;&#x4E5F;&#x662F;&#x53EF;&#x4EE5;&#x914D;&#x7F6E;&#x7684;&#xFF0C;&#x9ED8;&#x8BA4;cookie&#x548C;&#x521B;&#x5EFA;&#x5B83;&#x7684;&#x9875;&#x9762;&#x6709;&#x5173;&#xFF0C;&#x5E76;&#x5BF9;&#x8BE5;&#x9875;&#x9762;&#x540C;&#x76EE;&#x5F55;&#x548C;&#x5B50;&#x76EE;&#x5F55;&#x7684;&#x5176;&#x4ED6;&#x9875;&#x9762;&#x53EF;&#x89C1;&#x3002;</p>
+<p>&#x6BD4;&#x5982; <a href="https://a.com/b/page1.html" target="_blank">https://a.com/b/page1.html</a> &#x9875;&#x9762;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;cookie&#xFF0C;&#x90A3;&#x4E48;&#x5BF9; <a href="https://a.com/b/page2.html" target="_blank">https://a.com/b/page2.html</a> &#x548C; <a href="https://a.com/b/c/page1.html" target="_blank">https://a.com/b/c/page1.html</a> &#x4E5F;&#x662F;&#x53EF;&#x89C1;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x5BF9;<a href="https://a.com/&#x4E0D;&#x53EF;&#x89C1;&#x3002;" target="_blank">https://a.com/&#x4E0D;&#x53EF;&#x89C1;&#x3002;</a></p>
+<p>&#x901A;&#x5E38;&#x9ED8;&#x8BA4;&#x7684;&#x53EF;&#x89C1;&#x6027;&#x5C31;&#x80FD;&#x6EE1;&#x8DB3;&#x9700;&#x6C42;&#xFF0C;&#x4E0D;&#x8FC7;&#x6709;&#x7684;&#x65F6;&#x5019;&#x4F60;&#x60F3;&#x8981;&#x6574;&#x4E2A;&#x7F51;&#x7AD9;&#x90FD;&#x80FD;&#x4F7F;&#x7528;cookie&#xFF0C;&#x800C;&#x4E0D;&#x7BA1;&#x662F;&#x6309;&#x4E2A;&#x9875;&#x9762;&#x521B;&#x5EFA;&#x7684;&#x3002;</p>
+<p>&#x8FD9;&#x6837;&#x4E00;&#x6765;&#xFF0C;&#x6765;&#x81EA;&#x540C;&#x4E00;&#x4E2A;Web&#x670D;&#x52A1;&#x5668;&#x7684;Web&#x9875;&#x9762;&#xFF0C;&#x53EA;&#x8981;&#x5176;URL&#x662F;&#x5236;&#x5B9A;&#x7684;&#x524D;&#x7F00;&#x5F00;&#x59CB;&#x7684;&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x5171;&#x4EAB;cookie&#x3002;</p>
+<p>&#x540C;&#x6837;&#x4E0A;&#x4F8B;&#x4E2D; <a href="https://a.com/b/c/page.html" target="_blank">https://a.com/b/c/page.html</a> &#x9875;&#x9762;&#x521B;&#x5EFA;&#x7684;cookie&#xFF0C;&#x5E76;&#x4E14;&#x5C06;cookie&#x7684;&#x8DEF;&#x5F84;&#x8BBE;&#x7F6E;&#x4E3A; /b&#xFF0C;&#x5BF9;&#x4E8E;<a href="https://a.com/b/page.html&#x9875;&#x9762;&#x4E5F;&#x662F;&#x53EF;&#x89C1;&#x7684;&#x3002;" target="_blank">https://a.com/b/page.html&#x9875;&#x9762;&#x4E5F;&#x662F;&#x53EF;&#x89C1;&#x7684;&#x3002;</a></p>
+<p>&#x6216;&#x8005;&#xFF0C;&#x628A;&#x8DEF;&#x5F84;&#x8BBE;&#x7F6E;&#x4E3A;/&#xFF0C;&#x90A3;&#x4E48;&#x8BE5;cookie&#x5BF9;&#x4EFB;&#x4F55;<a href="https://www.example.com&#x8FD9;&#x53F0;Web&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x7684;&#x9875;&#x9762;&#x90FD;&#x662F;&#x53EF;&#x89C1;&#x7684;&#x3002;&#x5927;&#x578B;&#x7F51;&#x7AD9;&#x60F3;&#x8981;&#x5728;&#x5B50;&#x57DF;&#x540D;&#x4E4B;&#x95F4;&#x5171;&#x4EAB;cookie&#x901A;&#x5E38;&#x5C31;&#x5C06;&#x5C06;path&#x8BBE;&#x7F6E;&#x4E3A;/&#xFF0C;&#x5C06;domain&#x8BBE;&#x7F6E;&#x4E3A;" target="_blank">https://www.example.com&#x8FD9;&#x53F0;Web&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x7684;&#x9875;&#x9762;&#x90FD;&#x662F;&#x53EF;&#x89C1;&#x7684;&#x3002;&#x5927;&#x578B;&#x7F51;&#x7AD9;&#x60F3;&#x8981;&#x5728;&#x5B50;&#x57DF;&#x540D;&#x4E4B;&#x95F4;&#x5171;&#x4EAB;cookie&#x901A;&#x5E38;&#x5C31;&#x5C06;&#x5C06;path&#x8BBE;&#x7F6E;&#x4E3A;/&#xFF0C;&#x5C06;domain&#x8BBE;&#x7F6E;&#x4E3A;</a> .b.com&#xFF08;&#x5047;&#x5B9A;&#x5B50;&#x7F51;&#x7AD9;&#x5206;&#x522B;&#x4E3A; a.b.com &#x548C; c.b.com&#xFF09;</p>
+<p>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x8BBE;&#x7F6E;&#x5C5E;&#x6027;domain&#x5C5E;&#x6027;&#x9ED8;&#x8BA4;&#x503C;&#x8BBE;&#x7F6E;&#x4E3A;&#x5F53;&#x524D;&#x670D;&#x52A1;&#x5668;&#x7684;&#x4E3B;&#x673A;&#x540D;&#x3002;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF1A;&#x5730;&#x5740;&#xFF0C;&#x53EA;&#x80FD;&#x8BBE;&#x7F6E;&#x4E3A;&#x5F53;&#x524D;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x540E;&#x9762;&#x4F8B;&#x5B50;&#x4F1A;&#x4ECB;&#x7ECD;&#x3002;</p>
+<p><strong>&#x601D;&#x8003;&#xFF1A;&#x5173;&#x4E8E;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;cookie&#x7684;path&#x6765;&#x505A;&#x8BBF;&#x95EE;&#x63A7;&#x5236;&#xFF0C;&#x56E0;&#x4E3A;&#x53EF;&#x4EE5;iframe&#x5F97;&#x5230;&#x5BF9;&#x5E94;&#x6587;&#x6863;&#x7684;cookie&#x7684;&#x903B;&#x8F91;&#x6CA1;&#x592A;&#x660E;&#x767D;&#x3002;
+</strong></p>
+<h3 id="&#x5C5E;&#x6027;secure">&#x5C5E;&#x6027;secure</h3>
+<p>cookie&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x662F;&#x5E03;&#x5C14;&#x7C7B;&#x578B;&#x7684;secure&#xFF0C;&#x4E00;&#x65E6;&#x88AB;&#x6807;&#x8BB0;&#x8BF6;true&#xFF0C;&#x90A3;&#x5C31;&#x53EA;&#x80FD;&#x5F53;&#x6D4F;&#x89C8;&#x5668;&#x548C;&#x670D;&#x52A1;&#x5668;&#x4F7F;&#x7528;HTTPS&#x6216;&#x5176;&#x4ED6;&#x5B89;&#x5168;&#x534F;&#x8BAE;&#x8FDE;&#x63A5;&#x7684;&#x65F6;&#x5019;&#x624D;&#x80FD;&#x4F20;&#x9012;&#x5B83;&#x3002;</p>
+<h3 id="&#x8BFB;&#x53D6;cookie">&#x8BFB;&#x53D6;cookie</h3>
+<p>document.cookie&#x8BFB;&#x53D6;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x7531;&#x540D;&#x503C;&#x5BF9;&#x7EC4;&#x6210;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x4E0D;&#x540C;&#x547D;&#x503C;&#x5BF9;&#x901A;&#x8FC7;&#x5206;&#x53F7;&#x548C;&#x7A7A;&#x683C;&#x9694;&#x5F00;&#xFF0C;&#x5185;&#x5BB9;&#x5305;&#x542B;&#x4E86;&#x6240;&#x6709;<strong>&#x4F5C;&#x7528;&#x5728;&#x5F53;&#x524D;&#x6587;&#x6863;&#x4E0B;</strong>&#x7684;cookie&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x4F8B;&#x5B50;&#x662F;&#x4ECE; <a href="https://www.youtube.com/" target="_blank">https://www.youtube.com/</a> &#x4E0A;&#x8BFB;&#x53D6;&#x7684;cookie&#x7684;&#x5B57;&#x7B26;&#x4E32;</p>
+<pre><code>&quot;APISID=3XUtmYyD961qrqBf/Ap2WcgWMR6kCKpoHg; SAPISID=YBfm9MoOVWULtDJy/AMP_auRb3eZw2ZgO8; SID=ZgeGiFr3jvW7aunFOZEKeCO2A2_HrPMiQVNYxB8fALaj2wYQ4Aiu3uZ7p8cCZDoK-IPMvQ.; __Secure-3PAPISID=YBfm9MoOVWULtDJy/AMP_auRb3eZw2ZgO8; PREF=al=en&amp;f1=50000000; SIDCC=AN0-TYt-Epuw4yc_1_HjkzR6z7VclkY8JO99HgRy2bn3lgwhpQgbi94XHHi2VRol3yYI6p9Oe6M&quot;
+</code></pre><p>&#x901A;&#x5E38;&#x4F7F;&#x7528;split&#x65B9;&#x6CD5;&#x5C06;&#x540D;&#x503C;&#x5BF9;&#x5206;&#x79BB;&#x51FA;&#x6765;&#xFF0C;&#x4E0B;&#x9762;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code>function getCookie (){
+    var splits = document.cookie.split(&quot;;&quot;)
+    var result = {};
+    splits.forEach((e)=&gt;{
+      let index = e.indexOf(&apos;=&apos;);
+      let k = e.substring(0,index);
+      let v = e.substring(index+1);
+      result[k] = decodeURIComponent(v);
+    })
+
+}
+console.log(getCookie());
+
+// &#x8F93;&#x51FA;&#xFF1A;
+{
+    APISID: &quot;=3XUtmYyD961qrqBf/Ap2WcgWMR6kCKpoHg&quot;,
+    SAPISID: &quot;=YBfm9MoOVWULtDJy/AMP_auRb3eZw2ZgO8&quot;,
+    SID: &quot;=ZgeGiFr3jvW7aunFOZEKeCO2A2_HrPMiQVNYxB8fALaj2wYQ4Aiu3uZ7p8cCZDoK-IPMvQ.&quot;,
+    __Secure-3PAPISID: &quot;=YBfm9MoOVWULtDJy/AMP_auRb3eZw2ZgO8&quot;,
+    PREF: &quot;=al=en&amp;f1=50000000&quot;,
+    SIDCC: &quot;=AN0-TYtHEr3dIzcwlUvt9dv01sn3AxVykyz2S9cv6edcrA0ZzeHk43LJ1EOZdhm-3aYUdpIhmks&quot;,
+}
+</code></pre><h3 id="&#x4FDD;&#x5B58;cookie">&#x4FDD;&#x5B58;cookie</h3>
+<p>&#x53EA;&#x9700;&#x8981;&#x5C06;cookie&#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x4E3A;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x5F62;&#x5F0F;&#x7684;&#x503C;&#xFF1A;</p>
+<pre><code>document.cookie = &quot;version=1.0.1&quot;;
+</code></pre><p>&#x7531;&#x4E8E;&#x540D;/&#x76F4;&#x4E2D;&#x4E0D;&#x5141;&#x8BB8;&#x51FA;&#x73B0;&#x5206;&#x53F7;&#x3001;&#x9017;&#x53F7;&#x548C;&#x7A7A;&#x767D;&#x7B26;&#xFF0C;&#x56E0;&#x6B64;&#x4E00;&#x822C;&#x53EF;&#x4EE5;&#x91C7;&#x7528;encodeURIComponent&#x51FD;&#x6570;&#x5BF9;&#x9F50;&#x8FDB;&#x884C;&#x7F16;&#x7801;&#xFF0C;&#x8BFB;&#x53D6;&#x7684;&#x65F6;&#x5019;&#x9700;&#x8981;&#x4F7F;&#x7528;decodeURLComponent&#x5BF9;&#x9F50;&#x8FDB;&#x884C;&#x89E3;&#x7801;</p>
+<pre><code>name=value;max-age=${seconds}
+</code></pre><p>&#x540C;&#x6837;&#x8981;&#x8BBE;&#x7F6E;cookie&#x7684;path&#x3001;domain&#x548C;secure&#xFF0C;&#x9700;&#x8981;&#x5728;&#x540E;&#x9762;&#x8FFD;&#x52A0;&#x5982;&#x4E0B;&#x5B57;&#x7B26;&#x4E32;</p>
+<pre><code>path=${path};domain=${domain};recure
+</code></pre><p>&#x8981;&#x4F7F;&#x7528;&#x76F8;&#x540C;&#x540D;&#x5B57;&#x3001;&#x8DEF;&#x5F84;&#x548C;&#x57DF;&#xFF0C;&#x9700;&#x8981;&#x6574;&#x4E2A;&#x91CD;&#x65B0;&#x8BBE;&#x7F6E;&#xFF0C;&#x4E0D;&#x80FD;&#x4E4B;&#x4F20;&#x9012;&#x4E00;&#x4E2A;<code>name=${value}</code>&#x6765;&#x4FEE;&#x6539;&#x3002;</p>
+<p>&#x8981;&#x5220;&#x9664;&#x4E00;&#x4E2A;cookie&#xFF0C;&#x4F7F;&#x7528;&#x76F8;&#x540C;&#x7684;&#x540D;&#x5B57;&#x3001;&#x8DEF;&#x5F84;&#x548C;&#x57DF;&#xFF0C;&#x7136;&#x540E;&#x5236;&#x5B9A;&#x4E00;&#x4E2A;&#x975E;&#x7A7A;&#x7684;&#x503C;&#xFF0C;&#x5E76;&#x4E14;&#x5C06;max-age&#x8BBE;&#x5B9A;&#x4E3A;0&#x5373;&#x53EF;&#x3002;</p>
+<h3 id="&#x5B9E;&#x4F8B;&#x8FD0;&#x7528;">&#x5B9E;&#x4F8B;&#x8FD0;&#x7528;</h3>
+<p>&#x5173;&#x4E8E;&#x8BBE;&#x7F6E;domain&#x8FD9;&#x91CC;&#x9700;&#x8981;&#x4E3E;&#x4E9B;&#x4F8B;&#x5B50;&#x7528;&#x4E8E;&#x6F84;&#x6E05;&#x5BB9;&#x6613;&#x8BEF;&#x89E3;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x9996;&#x5148;&#x6253;&#x5F00; <a href="http://tech.tangyefei.cn/" target="_blank">http://tech.tangyefei.cn/</a></p>
+<h4 id="&#x57FA;&#x672C;&#x4F7F;&#x7528;">&#x57FA;&#x672C;&#x4F7F;&#x7528;</h4>
+<pre><code>document.cookie = &apos;a=1&apos;;
+</code></pre><p>&#x6267;&#x884C;&#x4E0A;&#x8FF0;&#x8BED;&#x53E5;&#x540E;&#xFF0C;&#x53D1;&#x4E0B;&#x591A;&#x4E86;&#x4E00;&#x6761;&#x8BB0;&#x5F55; name=a value=1 domain=tech.tangyefei.cn path=/ exipres=Session</p>
+<h4 id="&#x589E;&#x52A0;domain">&#x589E;&#x52A0;domain</h4>
+<pre><code>document.cookie = &apos;a=2;domain=tangyefei.cn&apos;;
+</code></pre><p>&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x8BED;&#x53E5;&#xFF0C;&#x53D1;&#x73B0;&#x591A;&#x4E86;&#x4E00;&#x6761;&#x8BB0;&#x5F55;  name=a value=2 domain=.tangyefei.cn path=/ exipres=Session</p>
+<p>&#x4E24;&#x4E2A;name=value&#x88AB;&#x79CD;&#x5728;&#x4E86;&#x4E0D;&#x540C;&#x7684;domain&#x4E0B;&#x9762;</p>
+<h4 id="&#x589E;&#x52A0;path">&#x589E;&#x52A0;path</h4>
+<pre><code>document.cookie = &apos;a=1;path=/algorithm&apos;;
+</code></pre><p>&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x8BED;&#x53E5;&#xFF0C;&#x53D1;&#x73B0;&#x591A;&#x4E86;&#x4E00;&#x6761;&#x8BB0;&#x5F55;  name=a value=2 domain=.tangyefei.cn path=/algorithm exipres=Session</p>
+<p>&#x5373;domain+path&#x88AB;&#x552F;&#x4E00;&#x786E;&#x5B9A;&#x4E00;&#x4E2A;name&#x80FD;&#x4E0D;&#x80FD;&#x88AB;&#x8BBE;&#x7F6E;&#x3002;</p>
+<h4 id="&#x548C;&#x6D4F;&#x89C8;&#x5668;tab&#x65E0;&#x5173;">&#x548C;&#x6D4F;&#x89C8;&#x5668;tab&#x65E0;&#x5173;</h4>
+<p>&#x65B0;&#x5F00;&#x4E00;&#x4E2A;&#x6D4F;&#x89C8;&#x5668;tab&#x6253;&#x5F00;&#x5176;&#x4ED6;&#x7F51;&#x9875;&#xFF0C;&#x53D1;&#x73B0;&#x503C;&#x90FD;&#x8FD8;&#x5728;&#xFF0C;&#x53EF;&#x89C1;&#x4ED6;&#x4EEC;&#x662F;&#x8DDF;&#x5355;&#x4E2A;&#x6D4F;&#x89C8;&#x5668;tab&#x65E0;&#x5173;&#x3002;</p>
+<h4 id="&#x548C;&#x6574;&#x4E2A;&#x6D4F;&#x89C8;&#x5668;&#x6709;&#x5173;">&#x548C;&#x6574;&#x4E2A;&#x6D4F;&#x89C8;&#x5668;&#x6709;&#x5173;</h4>
+<p>&#x5173;&#x95ED;&#x6D4F;&#x89C8;&#x5668;&#x91CD;&#x65B0;&#x6253;&#x5F00;&#x6539;&#x5730;&#x5740;&#xFF08;&#x5FC5;&#x987B;&#x52A0;&#x4E0A;path&#x5426;&#x5219;&#x6E05;&#x9664;&#x7684;&#x4E0D;&#x662F;&#x540C;&#x4E00;&#x6761;&#xFF09;&#xFF0C;&#x53D1;&#x73B0;cookie&#x88AB;&#x6E05;&#x9664;&#x4E86;&#xFF0C;&#x53EF;&#x89C1;&#x662F;&#x6574;&#x4E2A;&#x6D4F;&#x89C8;&#x5668;&#x8FDB;&#x7A0B;&#x6709;&#x5173;&#x7CFB;&#x7684;&#x3002;</p>
+<h4 id="&#x5220;&#x9664;cookie">&#x5220;&#x9664;cookie</h4>
+<pre><code>document.cookie= &apos;a=1;path=/algorithm;max-age=0&apos;;
+</code></pre><p>&#x6267;&#x884C;&#x4E0A;&#x8FF0;&#x8BED;&#x53E5;&#x540E;&#x53D1;&#x73B0;&#x751F;&#x6210;&#x7684;cookie&#x88AB;&#x5220;&#x9664;&#x6389;&#x4E86;</p>
+<pre><code>document.cookie = &apos;a=1&apos;;
+document.cookie= &apos;a=1;max-age=10&apos;;
+</code></pre><p>&#x6267;&#x884C;&#x4E0A;&#x8FF0;&#x8BED;&#x53E5;&#x540E;&#x53EF;&#x4EE5;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x89C2;&#x6D4B;&#x5230;&#xFF0C;10&#x79D2;&#x540E;&#x88AB;&#x6E05;&#x9664;&#x6389;&#x4E86;&#x3002;</p>
+<h4 id="&#x591A;&#x4E2A;cookie&#x503C;&#x8BBE;&#x7F6E;">&#x591A;&#x4E2A;cookie&#x503C;&#x8BBE;&#x7F6E;</h4>
+<pre><code>document.cookie= &apos;b=2;c=3&apos;;
+</code></pre><p>&#x6267;&#x884C;&#x8BED;&#x53E5;&#x540E;&#xFF0C;&#x53D1;&#x73B0;&#x503C;&#x51FA;&#x73B0;&#x4E86;name&#x4E3A;2&#xFF0C;value&#x4E3A;3&#x7684;&#x503C;&#x3002;</p>
+<p>&#x8363;&#x4E30;&#x4E00;&#x8BEF;&#x89E3;&#x7684;&#x662F;&#xFF0C;cookie&#x4E00;&#x6B21;&#x53EA;&#x80FD;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;name/value&#x5BF9;&#xFF0C;&#x591A;&#x4E2A;&#x503C;&#x9700;&#x8981;&#x591A;&#x6B21;&#x8BBE;&#x7F6E;&#x3002;</p>
+<p>&#x4F46;&#x662F;&#x4E0A;&#x9762;&#x4F8B;&#x5B50;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x901A;&#x8FC7;document.cookie&#x62FF;&#x5230;&#x7684;&#x7F3A;&#x5931;&#x7B26;&#x5408;&#x6574;&#x4E2A;&#x89C4;&#x5219;&#x7684;&#x591A;&#x4E2A;name=value&#x7684;&#x5B57;&#x7B26;&#x7EC4;&#x5408;&#xFF0C;&#x4E2D;&#x95F4;&#x88AB;&#x7528;;&#x9694;&#x5F00;&#x3002;</p>
+<h3 id="&#x5B58;&#x50A8;&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;">&#x5B58;&#x50A8;&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;</h3>
+<p>cookie&#x76F8;&#x5173;&#x7684;&#x5B58;&#x50A8;&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#xFF08;&#x6CE8;&#xFF1A;&#x9884;&#x5B9A;&#x4E49;&#x4E86;maxage&#x548C;path&#xFF09;&#xFF1A;</p>
+<pre><code>/ &#x57FA;&#x4E8E;cookie&#x7684;&#x5B58;&#x50A8;API
+function CookieStorage(maxage, path) {
+    // &#x83B7;&#x53D6;&#x4E00;&#x4E2A;&#x5B58;&#x50A8;&#x5168;&#x90E8;cookie&#x7684;&#x5BF9;&#x8C61;
+    var cookies = (function() {
+        var cookies = {};
+        var all = document.cookie;
+        if (all === &quot;&quot;) {
+            return cookies;
+        }
+        // &#x5206;&#x79BB;&#x51FA;&#x540D;/&#x503C;&#x5BF9;
+        var list = all.split(&quot;; &quot;);
+        // &#x904D;&#x5386;&#x6BCF;&#x4E2A;cookie
+        for (var i = 0; i &lt; list.length; i++) {
+            var cookie = list[i];
+            var p = cookie.indexOf(&quot;=&quot;);
+            // &#x83B7;&#x53D6;cookie&#x7684;&#x540D;&#x5B57;
+            var name = cookie.substring(0, p);
+            // &#x83B7;&#x53D6;cookie&#x5BF9;&#x5E94;&#x7684;&#x503C;
+            var value = cookie.substring(p + 1);
+            // &#x89E3;&#x7801;
+            value = decodeURIComponent(value);
+            cookies[name] = value;
+        }
+        return cookies;
+    }());
+
+
+    // &#x5C06;&#x6240;&#x6709;&#x7684;cookie&#x5B58;&#x50A8;&#x5230;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x4E2D;
+    var keys = [];
+    for (var key in cookies) {
+        keys.push(key);
+    }
+
+    // &#x5B9A;&#x4E49;&#x5B58;&#x50A8;API&#x7684;&#x516C;&#x5171;&#x65B9;&#x6CD5;&#x548C;&#x5C5E;&#x6027;
+
+    // &#x5B58;&#x50A8;cookie &#x7684;&#x4E2A;&#x6570;
+    this.length = keys.length;
+
+    // &#x8FD4;&#x56DE;&#x7B2C;N&#x4E2A;cookie&#x7684;&#x540D;&#x5B57;, N&#x8D8A;&#x754C;&#x8FD4;&#x56DE;null
+    this.key = function(n) {
+        if (n &lt; 0 || n &gt;= keys.length) {
+            return null;
+        }
+        return keys[n];
+    };
+
+    // &#x8FD4;&#x56DE;&#x6307;&#x5B9A;cookie&#x7684;&#x540D;&#x5B57;,&#x5982;&#x679C;&#x4E0D;&#x5B58;&#x5728;&#x8FD4;&#x56DE;NULL
+    this.getItem = function(name) {
+        return cookies[name] || null;
+    };
+
+    // &#x5B58;&#x50A8;cookie
+    this.setItem = function(key, value) {
+        // &#x5982;&#x679C;&#x8981;&#x5B58;&#x50A8;&#x7684;cookie&#x8FD8;&#x4E0D;&#x5B58;&#x5728;
+        if (!(key in cookies)) {
+            // &#x52A0;&#x5165;&#x6570;&#x7EC4;
+            keys.push(key);
+            // &#x957F;&#x5EA6;&#x52A0;&#x4E00;
+            this.length++;
+        }
+
+        // &#x5C06;&#x540D;/&#x503C;&#x5B58;&#x50A8;&#x5230;cookies&#x5BF9;&#x8C61;&#x4E2D;
+        cookies[key] = value;
+
+        // &#x8BBE;&#x7F6E;cookie
+        var cookie = key + &quot;=&quot; + encodeURIComponent(value);
+        // &#x6DFB;&#x52A0; maxage
+        if (maxage) {
+            cookie += &quot;; max-age=&quot; + maxage;
+        }
+        // &#x6DFB;&#x52A0;path
+        if (path) {
+            cookie += &quot;; path=&quot; + path;
+        }
+
+        // &#x8BBE;&#x7F6E;document.cookie
+        document.cookie = cookie;
+    };
+
+    // &#x5220;&#x9664;&#x6307;&#x5B9A;&#x7684;cookie
+    this.removeItem = function(key) {
+        if (!(key in cookies)) {
+            return;
+        }
+
+        // &#x5220;&#x9664;&#x5185;&#x90E8;cookies&#x7684;&#x6307;&#x5B9A;cookie
+        delete cookies[key];
+
+        // &#x4ECE;&#x6570;&#x7EC4;&#x4E2D;&#x5220;&#x9664;
+        for (var i = 0; i &lt; keys.length; i++) {
+            if (keys[i] === key) {
+                keys.splice(i, 1);
+                break;
+            }
+        }
+        this.length--;
+        // &#x901A;&#x8FC7;&#x8BBE;&#x7F6E;&#x6709;&#x6548;&#x671F;&#x4E3A;0&#x6765;&#x5220;&#x9664;cookie
+        document.cookie = key + &quot;=; max-age=0&quot;;
+    };
+
+    // &#x5220;&#x9664;&#x6240;&#x6709;cookie
+    this.clear = function() {
+        for (var i = 0; i &lt; keys.length; i++) {
+            document.cookie = keys[i] + &quot;=; max-age=0&quot;;
+        }
+        cookies = {};
+        keys = [];
+        this.length = 0;
+    };
+}
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="chapter17-event-handler.html" class="navigation navigation-prev " aria-label="Previous page: 第17章 事件处理">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="chapter22-html5-api.html" class="navigation navigation-next " aria-label="Next page: 第22章 HTML5 API">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"第20章 客户端存储","level":"1.17","depth":1,"next":{"title":"第22章 HTML5 API","level":"1.18","depth":1,"path":"chapter22-html5-api.md","ref":"chapter22-html5-api.md","articles":[]},"previous":{"title":"第17章 事件处理","level":"1.16","depth":1,"path":"chapter17-event-handler.md","ref":"chapter17-event-handler.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter20-client-storage.md","mtime":"2020-12-28T07:36:56.044Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-13T09:10:29.411Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

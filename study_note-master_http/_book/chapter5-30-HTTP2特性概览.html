@@ -1,0 +1,706 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>30 HTTP2特性概览 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="chapter5-33-我应该迁移到HTTP2吗.html" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="chapter0-0-开篇词-to-be-a-http-hero.html">
+            
+                <a href="chapter0-0-开篇词-to-be-a-http-hero.html">
+            
+                    
+                    开篇词
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    基础篇
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="chapter1-1-时势与英雄：HTTP的前世今生.html">
+            
+                <a href="chapter1-1-时势与英雄：HTTP的前世今生.html">
+            
+                    
+                    1 时势与英雄：HTTP的前世今生
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="chapter1-2-http是什么，http又不是什么.html">
+            
+                <a href="chapter1-2-http是什么，http又不是什么.html">
+            
+                    
+                    2 HTT是什么，HTT又不是什么
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="chapter1-3-HTTP世界全览：与HTTP相关的各种概念.html">
+            
+                <a href="chapter1-3-HTTP世界全览：与HTTP相关的各种概念.html">
+            
+                    
+                    3 HTTP世界全览：与HTTP相关的各种概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="chapter1-4-HTTP世界全览：与HTTP相关的各种协议.html">
+            
+                <a href="chapter1-4-HTTP世界全览：与HTTP相关的各种协议.html">
+            
+                    
+                    4 HTTP世界全览：与HTTP相关的各种协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="chapter1-5-常说的四层七层到底是什么.html">
+            
+                <a href="chapter1-5-常说的四层七层到底是什么.html">
+            
+                    
+                    5 常说的四层七层到底是什么？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="chapter1-6-域名里有哪些门道.html">
+            
+                <a href="chapter1-6-域名里有哪些门道.html">
+            
+                    
+                    6 域名里有哪些门道？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="chapter1-7-自己动手搭建HTTP实验环境.html">
+            
+                <a href="chapter1-7-自己动手搭建HTTP实验环境.html">
+            
+                    
+                    7 自己动手搭建HTTP实验环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    破冰篇
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="chapter2-8-键入网址再按回车，后面究竟发生了什么.html">
+            
+                <a href="chapter2-8-键入网址再按回车，后面究竟发生了什么.html">
+            
+                    
+                    8 键入网址再按回车，后面究竟发生了什么？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="chapter2-9-HTTP报文什么是样子的.html">
+            
+                <a href="chapter2-9-HTTP报文什么是样子的.html">
+            
+                    
+                    9 HTTP报文什么是样子的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="chapter2-10-应该如何理解请求方法.html">
+            
+                <a href="chapter2-10-应该如何理解请求方法.html">
+            
+                    
+                    10 应该如何理解请求方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="chapter2-11-你能写出正确网址吗.html">
+            
+                <a href="chapter2-11-你能写出正确网址吗.html">
+            
+                    
+                    11 你能写出正确网址吗？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="chapter2-12-响应状态码应该怎么用.html">
+            
+                <a href="chapter2-12-响应状态码应该怎么用.html">
+            
+                    
+                    12 响应状态码应该怎么用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="chapter2-13-HTTP有哪些特点.html">
+            
+                <a href="chapter2-13-HTTP有哪些特点.html">
+            
+                    
+                    13 HTTP有哪些特点？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="chapter2-14-HTTP有哪些优点-又有哪些缺点.html">
+            
+                <a href="chapter2-14-HTTP有哪些优点-又有哪些缺点.html">
+            
+                    
+                    14 HTTP有哪些优点，又有哪些缺点？
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    进阶篇
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="chapter3-15-HTTP的实体数据.html">
+            
+                <a href="chapter3-15-HTTP的实体数据.html">
+            
+                    
+                    15 HTTP的实体数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="chapter3-17-HTTP的连接管理.html">
+            
+                <a href="chapter3-17-HTTP的连接管理.html">
+            
+                    
+                    17 HTTP的连接管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    安全篇
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="chapter4-23-HTTPS是什么，SSL-TLS又是什么.html">
+            
+                <a href="chapter4-23-HTTPS是什么，SSL-TLS又是什么.html">
+            
+                    
+                    23 HTTPS是什么，SSL TLS又是什么？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="chapter4-24-对称加密与非对称加密.html">
+            
+                <a href="chapter4-24-对称加密与非对称加密.html">
+            
+                    
+                    24 对称加密与非对称加密
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="chapter4-25-数字签名与证书.html">
+            
+                <a href="chapter4-25-数字签名与证书.html">
+            
+                    
+                    25 数字签名与证书
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="chapter4-26-TLS1_2连接过程解析.html">
+            
+                <a href="chapter4-26-TLS1_2连接过程解析.html">
+            
+                    
+                    26 TLS1_2连接过程解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="chapter4-28-HTTPS太慢怎么优化.html">
+            
+                <a href="chapter4-28-HTTPS太慢怎么优化.html">
+            
+                    
+                    28 HTTPS太慢怎么优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    探索篇
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.7.1" data-path="chapter5-30-HTTP2特性概览.html">
+            
+                <a href="chapter5-30-HTTP2特性概览.html">
+            
+                    
+                    30 HTTP2特性概览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="chapter5-33-我应该迁移到HTTP2吗.html">
+            
+                <a href="chapter5-33-我应该迁移到HTTP2吗.html">
+            
+                    
+                    33 我应该迁移到HTTP2吗
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="chapter5-38-WebSocket-沙盒里的TCP.html">
+            
+                <a href="chapter5-38-WebSocket-沙盒里的TCP.html">
+            
+                    
+                    38 WebSocket-沙盒里的TCP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >30 HTTP2特性概览</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="30-http2&#x7279;&#x6027;&#x6982;&#x89C8;">30 HTTP/2&#x7279;&#x6027;&#x6982;&#x89C8;</h1>
+<p>HTTP&#x7684;&#x4E24;&#x4E2A;&#x4E3B;&#x8981;&#x7F3A;&#x70B9;&#x662F;&#xFF0C;&#x4E0D;&#x5B89;&#x5168;&#x3001;&#x6027;&#x80FD;&#x4E0D;&#x9AD8;&#x3002;</p>
+<p>HTTPS&#x901A;&#x8FC7;&#x5F15;&#x5165;TLS/SSL&#x89E3;&#x51B3;&#x4E86;&#x5B89;&#x5168;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x4F46;&#x6027;&#x80FD;&#x4E0A;&#xFF0C;&#x53EA;&#x662F;&#x901A;&#x8FC7;&#x201D;&#x957F;&#x8FDE;&#x63A5;&#x201C;&#x4F18;&#x5316;&#x4E86;&#x63E1;&#x624B;&#x7684;&#x73AF;&#x8282;&#xFF0C;&#x6574;&#x4F53;&#x7684;&#x6570;&#x636E;&#x4F20;&#x8F93;&#x6CA1;&#x6709;&#x66F4;&#x597D;&#x7684;&#x6539;&#x8FDB;&#x65B9;&#x6848;&#x3002;</p>
+<p>Googe&#x53D1;&#x660E;&#x4E86;SPDY&#x534F;&#x8BAE;&#x5E76;&#x5E94;&#x7528;&#x4E8E;Chrome&#xFF0C;&#x968F;&#x7740;IEFT&#x4EE5;SPDY&#x4E3A;&#x57FA;&#x7840;&#xFF0C;&#x7EFC;&#x5408;&#x5404;&#x5BB6;&#x63D0;&#x51FA;&#x7684;&#x610F;&#x89C1;&#x63A8;&#x51FA;&#x4E86;HTTP/1&#x7684;&#x7EE7;&#x4EFB;&#x8005;&#x3002;</p>
+<p>&#x5B83;&#x5C31;&#x662F;&#x672C;&#x8282;&#x7684;&#x4E3B;&#x9898;HTTP/2&#xFF0C;&#x5728;&#x6027;&#x80FD;&#x65B9;&#x9762;&#x6709;&#x4E86;&#x4E86;&#x5DE8;&#x5927;&#x7684;&#x98DE;&#x8DC3;&#x3002;</p>
+<h2 id="&#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x662F;http20">&#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x662F;HTTP/2.0</h2>
+<p>&#x5DE5;&#x4F5C;&#x7EC4;&#x7684;&#x89E3;&#x91CA;&#x662F;&#x5C0F;&#x7248;&#x672C;&#x597D;&#x5BB9;&#x6613;&#x96BE;&#x4EE5;&#x533A;&#x5206;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x4EE5;&#x540E;&#x7684;HTTP&#x534F;&#x8BAE;&#x4E2D;&#x4E0D;&#x518D;&#x4F7F;&#x7528;&#x5C0F;&#x7248;&#x672C;&#x53F7;&#xFF0C;&#x53EA;&#x4F7F;&#x7528;&#x5927;&#x7248;&#x672C;&#x53F7;&#x3002;</p>
+<p>&#x534F;&#x8BAE;&#x4F1A;&#x5728;&#x8F83;&#x957F;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x5185;&#x4FDD;&#x6301;&#x7A33;&#x5B9A;&#xFF0C;&#x53D1;&#x5E03;&#x65B0;&#x7248;&#x672C;&#x7684;HTTP&#x534F;&#x8BAE;&#x65F6;&#x5019;&#x4F1A;&#x6709;&#x672C;&#x8D28;&#x7684;&#x4E0D;&#x540C;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x201D;&#x96F6;&#x6572;&#x788E;&#x6253;&#x201C;&#x3002;</p>
+<h2 id="&#x517C;&#x5BB9;http11">&#x517C;&#x5BB9;HTTP/1.1</h2>
+<p>HTTPS&#x5728;&#x6027;&#x80FD;&#x65B9;&#x9762;&#x5DF2;&#x7ECF;&#x505A;&#x7684;&#x975E;&#x5E38;&#x597D;&#xFF0C;&#x56E0;&#x6B64;HTTP/2&#x7684;&#x552F;&#x4E00;&#x76EE;&#x6807;&#x662F;&#x6539;&#x8FDB;&#x6027;&#x80FD;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x4E0D;&#x7834;&#x574F;&#x7269;&#x8054;&#x7F51;&#x4E0A;&#x73B0;&#x6709;&#x7684;&#x65E0;&#x6570;&#x5B57;&#x957F;&#xFF0C;&#x5FC5;&#x987B;&#x8981;&#x8003;&#x8651;&#x597D;&#x517C;&#x5BB9;&#xFF0C;HTTP/2&#x7684;&#x505A;&#x6CD5;&#x662F;&#x5427;HTTP&#x5206;&#x60E9;&#x6076;&#x201D;&#x8BED;&#x4E49;&#x201C;&#x548C;&#x201D;&#x8BED;&#x6CD5;&#x201C;&#x3002;</p>
+<h3 id="&#x8BED;&#x4E49;">&#x8BED;&#x4E49;</h3>
+<p>&#x8BED;&#x4E49;&#x5C42;&#x4E0D;&#x505A;&#x6539;&#x52A8;&#xFF0C;&#x4E0E;HTTP/1&#x5B8C;&#x5168;&#x4E00;&#x81F4;&#xFF0C;&#x6D88;&#x9664;&#x4E86;&#x5B66;&#x4E60;&#x7684;&#x6210;&#x672C;&#xFF0C;HTTP&#x7684;&#x4E0A;&#x5C42;&#x5E94;&#x7528;&#x4E0D;&#x7528;&#x505A;&#x4EFB;&#x4F55;&#x66F4;&#x6539;&#x5C31;&#x53EF;&#x4EE5;&#x5207;&#x6362;&#x5230;HTTP/2</p>
+<h3 id="&#x8BED;&#x6CD5;">&#x8BED;&#x6CD5;</h3>
+<p>&#x5728;&#x8BED;&#x6CD5;&#x5C42;&#xFF0C;HTTP/2&#x505A;&#x4E86;&#x201D;&#x5929;&#x7FFB;&#x5730;&#x8986;&#x201C;&#x7684;&#x6539;&#x9020;&#xFF0C;&#x5B8C;&#x5168;&#x53D8;&#x66F4;&#x4E86;HTTP&#x62A5;&#x6587;&#x7684;&#x4F20;&#x8F93;&#x683C;&#x5F0F;&#x3002;</p>
+<h2 id="&#x5934;&#x90E8;&#x538B;&#x7F29;">&#x5934;&#x90E8;&#x538B;&#x7F29;</h2>
+<p>HTTP/1.1&#x53EF;&#x4EE5;&#x901A;&#x8FC7;Content-Encoding&#x5236;&#x5B9A;Body&#x7684;&#x7F16;&#x7801;&#x65B9;&#x5F0F;&#xFF0C;&#x4F46;&#x662F;header&#x90E8;&#x5206;&#x5374;&#x6CA1;&#x6709;&#x9488;&#x5BF9;&#x5B83;&#x7684;&#x4F18;&#x5316;&#x624B;&#x6BB5;&#x3002;</p>
+<p>&#x62A5;&#x6587;&#x7684;header&#x643A;&#x5E26;&#x7684;&#x8BB8;&#x591A;&#x56FA;&#x5B9A;&#x5934;&#x5B57;&#x6BB5;&#x591A;&#x8FBE;&#x51E0;&#x767E;&#x751A;&#x81F3;&#x4E0A;&#x5343;&#x5B57;&#x8282;&#xFF0C;Body&#x8BF7;&#x6C42;&#x5374;&#x901A;&#x5E38;&#x53EA;&#x6709;&#x51E0;&#x5341;&#x5B57;&#x8282;&#xFF08;&#x6BD4;&#x5982;GET&#x8BF7;&#x6C42;&#x3001;204 No Content/301 Move Permanently/304 Not Modified&#xFF09;&#xFF1B;&#x53E6;&#x5916;&#x4E00;&#x65B9;&#x9762;&#xFF0C;&#x5F88;&#x591A;&#x7EC8;&#x7AEF;&#x90FD;&#x662F;&#x91CD;&#x590D;&#x7684;&#xFF0C;&#x5BFC;&#x81F4;&#x4E86;&#x5927;&#x91CF;&#x5E26;&#x5BBD;&#x6D6A;&#x8D39;&#x5728;&#x4E86;&#x8FD9;&#x4E9B;&#x5197;&#x4F59;&#x4E0A;&#x3002;</p>
+<p>HTTP/2&#x7684;&#x4F18;&#x5316;&#x65B9;&#x5F0F;&#x662F;&#x538B;&#x7F29;&#xFF0C;&#x5B83;&#x4E13;&#x95E8;&#x5F00;&#x53D1;&#x4E86;&quot;HPACK&quot;&#x7B97;&#x6CD5;&#xFF0C;&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x548C;&#x670D;&#x52A1;&#x7AEF;&#x5EFA;&#x7ACB;&#x5B57;&#x5178;&#xFF0C;&#x7D22;&#x5F15;&#x53F7;&#x8868;&#x793A;&#x91CD;&#x590D;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x8FD8;&#x91C7;&#x7528;&#x54C8;&#x592B;&#x66FC;&#x7F16;&#x7801;&#x6765;&#x538B;&#x7F29;&#x6574;&#x6570;&#x548C;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x53EF;&#x4EE5;&#x8FBE;&#x5230;50%-90%&#x7684;&#x538B;&#x7F29;&#x7387;&#x3002;</p>
+<h2 id="&#x4E8C;&#x8FDB;&#x5236;&#x683C;&#x5F0F;">&#x4E8C;&#x8FDB;&#x5236;&#x683C;&#x5F0F;</h2>
+<p>HTTP/1&#x7EAF;&#x6587;&#x672C;&#x5F62;&#x5F0F;&#x7684;&#x62A5;&#x6587;&#x4F18;&#x70B9;&#x662F;&#x201D;&#x4E00;&#x76EE;&#x4E86;&#x7136;&#x201C;&#xFF0C;&#x5F00;&#x53D1;&#x8C03;&#x8BD5;&#x90FD;&#x975E;&#x5E38;&#x65B9;&#x4FBF;&#x3002;HTTP/2&#x7684;&#x505A;&#x6CD5;&#x662F;&#x4E0D;&#x5728;&#x4F1A;&#x7528;&#x8089;&#x773C;&#x53EF;&#x89C1;&#x7684;ASCII&#xFF0C;&#x800C;&#x662F;&#x5168;&#x9762;&#x91C7;&#x7528;&#x4E8C;&#x8FDB;&#x5236;&#x683C;&#x5F0F;&#x3002;&#x539F;&#x6765;&#x4F7F;&#x7528;&#x7EAF;&#x6587;&#x672C;&#x5BB9;&#x6613;&#x51FA;&#x73B0;&#x591A;&#x4E49;&#x6027;&#xFF0C;&#x6BD4;&#x5982;&#x5927;&#x5C0F;&#x5199;&#x3001;&#x7A7A;&#x767D;&#x5B57;&#x7B26;&#x3001;&#x56DE;&#x8F66;&#x6362;&#x884C;&#x3001;&#x591A;&#x5B57;&#x5C11;&#x5B50;&#x7B49;&#xFF0C;&#x7A0B;&#x5E8F;&#x5904;&#x7406;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x4F7F;&#x7528;&#x590D;&#x6742;&#x7684;&#x8BA1;&#x7B97;&#x673A;&#xFF0C;&#x6548;&#x7387;&#x4F4E;&#x8FD8;&#x9EBB;&#x70E6;&#xFF0C;&#x4F7F;&#x7528;&#x4E86;&#x4E8C;&#x8FDB;&#x5236;&#x4EE5;&#x540E;&#xFF0C;&#x4E25;&#x683C;&#x89C4;&#x5B9A;&#x5B57;&#x6BB5;&#x5927;&#x5C0F;&#x3001;&#x987A;&#x5E8F;&#x3001;&#x6807;&#x5FD7;&#x4F4D;&#x7B49;&#x683C;&#x5F0F;&#xFF0C;&#x89E3;&#x6790;&#x8D77;&#x6765;&#x6CA1;&#x6709;&#x6B67;&#x4E49;&#xFF0C;&#x5B9E;&#x73B0;&#x7B80;&#x5355;&#xFF0C;&#x800C;&#x4E14;&#x4F53;&#x79EF;&#x5C0F; &#x3001;&#x901F;&#x5EA6;&#x5FEB;&#x3002;</p>
+<p>&#x5728;&#x4E8C;&#x8FDB;&#x5236;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#xFF0C;&#x5B83;&#x628A;TCP&#x534F;&#x8BAE;&#x7684;&#x90E8;&#x5206;&#x7279;&#x6027;&#x632A;&#x5230;&#x4E86;&#x5E94;&#x7528;&#x5C42;&#xFF0C;&#x628A;Header+Body&#x7684;&#x6D88;&#x606F;&#x7ED3;&#x6784;&#x6253;&#x6563;&#x4E3A;&#x6570;&#x4E2A;&#x5C0F;&#x7247;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x201D;&#x5E27;&#x201D;&#xFF0C;HEADERS&#x5E27;&#x5B58;&#x653E;&#x5934;&#x6570;&#x636E;&#xFF0C;DATA&#x5E27;&#x5B58;&#x653E;&#x5B9E;&#x4F53;&#x6570;&#x636E;&#x3002;</p>
+<p><img src="http2-frame-pass.jpeg" alt="HTTP2&#x5E94;&#x7528;&#x5C42;&#x6309;&#x5E27;&#x4F20;&#x9012;&#x6570;&#x636E;"></p>
+<p>&#x6CE8;&#xFF1A;&#x6D41;&#x6D6A;&#x5668;&#x4ECD;&#x65E7;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x660E;&#x6587;&#xFF0C;&#x662F;&#x56E0;&#x4E3A;&#x5B83;&#x5BF9;&#x4E8C;&#x8FDB;&#x5236;&#x505A;&#x4E86;&#x8F6C;&#x5316;&#x3002;</p>
+<h2 id="&#x865A;&#x62DF;&#x7684;&#x6D41;">&#x865A;&#x62DF;&#x7684;&#x6D41;</h2>
+<p>HTTP/2&#x628A;&#x4E00;&#x4E2A;&#x4E00;&#x4E2A;&#x7684;&#x6D88;&#x606F;&#x788E;&#x7247;&#x53EB;&#x505A;&#x6D41;&#xFF08;Stream&#xFF09;&#xFF0C;&#x5B83;&#x662F;&#x4E8C;&#x8FDB;&#x5236;&#x5E27;&#x7684;&#x53CC;&#x5411;&#x4F20;&#x8F93;&#x5E8F;&#x5217;&#xFF0C;&#x6BCF;&#x4E2A;&#x5E27;&#x5206;&#x914D;&#x552F;&#x4E00;&#x7684;ID&#xFF0C;&#x63A5;&#x6536;&#x65B9;&#x6309;&#x7167;&#x6B21;&#x5E8F;&#x5C06;&#x6570;&#x636E;&#x5E27;&#x7EC4;&#x88C5;&#x8D77;&#x6765;&#x5C31;&#x662F;&#x8BF7;&#x6C42;&#x62A5;&#x6587;&#x548C;&#x54CD;&#x5E94;&#x62A5;&#x6587;&#x3002;</p>
+<p>&#x6240;&#x4EE5;&#x4E00;&#x4E2A;TCP&#x8FDE;&#x63A5;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x53D1;&#x9001;&#x591A;&#x4E2A;&#x201C;&#x788E;&#x7247;&#x5316;&#x201D;&#x7684;&#x6D88;&#x606F;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;&#x5E38;&#x8BF4;&#x7684;&#x591A;&#x8DEF;&#x590D;&#x7528;&#xFF08;Multiplexing&#xFF09;&#x3002;</p>
+<p>&#x591A;&#x4E2A;&#x8BF7;&#x6C42;/&#x54CD;&#x5E94;&#x4E4B;&#x95F4;&#x6CA1;&#x6709;&#x4E86;&#x987A;&#x5E8F;&#x5173;&#x7CFB;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x6392;&#x961F;&#x7B49;&#x5F85;&#xFF0C;&#x5C31;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&quot;&#x961F;&#x5934;&#x963B;&#x585E;&quot;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x964D;&#x4F4E;&#x4E86;&#x5EF6;&#x8FDF;&#xFF0C;&#x63D0;&#x9AD8;&#x4E86;&#x8FDE;&#x63A5;&#x7684;&#x5229;&#x7528;&#x7387;&#x3002;
+=]
+<strong>&#x601D;&#x8003;&#xFF1A;&#x90A3;&#x4E48;&#x591A;&#x8DEF;&#x7684;&#x591A;&#x4F53;&#x73B0;&#x5728;&#x54EA;&#x91CC;&#x5462;&#xFF1F;&#x591A;&#x4E2A;&#x8BF7;&#x6C42;/&#x54CD;&#x5E94;&#x4E4B;&#x95F4;&#x6CA1;&#x6709;&#x4E86;&#x987A;&#x5E8F;&#x5173;&#x7CFB;&#x53C8;&#x600E;&#x4E48;&#x7406;&#x89E3;&#xFF1F;</strong></p>
+<p><img src="http2-multiplexing.jpeg" alt="&#x591A;&#x8DEF;&#x590D;&#x7528;&#x793A;&#x610F;&#x56FE;"></p>
+<p>HTTP/2&#x8FD8;&#x589E;&#x52A0;&#x4E86;&#x4E00;&#x4E9B;&#x7A7A;&#x6307;&#x9488;&#x5566;&#x7BA1;&#x7406;&#x201C;&#x6D41;&#x201D;&#xFF0C;&#x5B9E;&#x73B0;&#x4F18;&#x5148;&#x7EA7;&#x548C;&#x6D41;&#x91CF;&#x63A7;&#x5236;&#xFF0C;&#x8FD9;&#x4E9B;&#x534F;&#x8BAE;&#x548C;TCP&#x534F;&#x8BAE;&#x975E;&#x5E38;&#x7C7B;&#x4F3C;&#x3002;</p>
+<p>HTTP/2&#x5728;&#x4E00;&#x5B9A;&#x7A0B;&#x5EA6;&#x4E0A;&#x6539;&#x53D8;&#x4E86;&#x4F20;&#x7EDF;&#x7684;&#x201C;&#x8BF7;&#x6C42;-&#x5E94;&#x7B54;&#x201D;&#x7684;&#x5DE5;&#x4F5C;&#x6A21;&#x5F0F;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x4E0D;&#x53EA;&#x662F;&#x88AB;&#x52A8;&#x5730;&#x54CD;&#x5E94;&#x8BF7;&#x6C42;&#xFF0C;&#x53EF;&#x4EE5;&#x65B0;&#x5EFA;&#x201C;&#x6D41;&#x201D;&#x4E3B;&#x52A8;&#x5411;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;&#x6D88;&#x606F;&#x3002;&#x6BD4;&#x5982;&#x8BF7;&#x6C42;HTML&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x628A;&#x53EF;&#x80FD;&#x4F1A;&#x7528;&#x5230;&#x7684;JS&#x3001;CSS&#x6587;&#x4EF6;&#x53D1;&#x9001;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x8FD9;&#x88AB;&#x79F0;&#x4E3A;&#x201C;&#x670D;&#x52A1;&#x5668;&#x63A8;&#x9001;&#x201C;&#x3002;</p>
+<p>&#x601D;&#x8003;&#xFF1A;&#x5BF9;&#x4E8E;&#x5BF9;&#x5934;&#x963B;&#x585E;&#x3001;&#x591A;&#x8DEF;&#x590D;&#x7528;&#x7684;&#x7406;&#x89E3;&#x8FD8;&#x4E0D;&#x662F;&#x548C;&#x591F;&#xFF1F;</p>
+<h2 id="&#x5F3A;&#x5316;&#x5B89;&#x5168;">&#x5F3A;&#x5316;&#x5B89;&#x5168;</h2>
+<p>HTTP/2&#x5EF6;&#x7EED;&#x4E86;HTTP/1.1&#x7684;&#x660E;&#x6587;&#x7279;&#x70B9;&#xFF0C;&#x4E0D;&#x8FC7;&#x683C;&#x5F0F;&#x662F;&#x4E0D;&#x9700;&#x8981;&#x89E3;&#x5BC6;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x3002;</p>
+<p>&#x56E0;&#x4E3A;HTTPS&#x662F;&#x5927;&#x52BF;&#x6240;&#x8D8B;&#xFF0C;&#x6240;&#x4EE5;&#x4E92;&#x8054;&#x7F51;&#x4E0A;&#x7684;HTTP/2&#x90FD;&#x662F;&#x4F7F;&#x7528;HTTPS&#x7684;&#x57DF;&#x540D;&#xFF0C;&#x8DD1;&#x5728;TLS&#x4E0A;&#x9762;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x533A;&#x5206;&#x5728;HTTPS&#x4E0A;&#x7684;&#x52A0;&#x5BC6;&#x7248;&#x672C;HTTP/2&#x548C;&#x5728;HTTP&#x4E0A;&#x7684;&#x660E;&#x6587;HTTP/2&#xFF0C;HTTP/2&#x89C4;&#x5B9A;&#x4E86;&#x8FDE;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x6807;&#x8BC6;&#x7B26;&#xFF1A;h2&#x8868;&#x793A;&#x52A0;&#x5BC6;&#x7684;&#xFF0C;h2&#x8868;&#x793A;clear text&#x7684;&#x3002;</p>
+<p>HTTP/2&#x5236;&#x5B9A;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5F88;&#x591A;SSL/TLS&#x7684;&#x5F31;&#x70B9;&#x5DF2;&#x7ECF;&#x53D1;&#x53D1;&#x73B0;&#xFF0C;&#x800C;TLS&#x8FD8;&#x672A;&#x53D1;&#x5E03;&#xFF0C;&#x56E0;&#x6B64;HTTP/2&#x8981;&#x6C42;&#x4E0B;&#x5C42;&#x901A;&#x4FE1;&#x534F;&#x8BAE;&#x5FC5;&#x987B;&#x662F;TLS1.2&#x4EE5;&#x4E0A;&#xFF0C;&#x8FD9;&#x4E5F;&#x5C31;&#x5E9F;&#x6B62;&#x4E86;&#x4E00;&#x4E9B;&#x5B89;&#x5168;&#x6027;&#x5F88;&#x5F31;&#x7684;&#x5BC6;&#x7801;&#x5957;&#x4EF6;&#x3002;</p>
+<h2 id="&#x534F;&#x8BAE;&#x6808;">&#x534F;&#x8BAE;&#x6808;</h2>
+<p><img src="http-https-http2-compare.jpeg" alt="http-https-http2-compare"></p>
+<h2 id="&#x8BFE;&#x540E;&#x4F5C;&#x4E1A;">&#x8BFE;&#x540E;&#x4F5C;&#x4E1A;</h2>
+<ol>
+<li><p>&#x660E;&#x6587;&#x5F62;&#x5F0F;HTTP/2&#x6709;&#x4EC0;&#x4E48;&#x597D;&#x5904;&#xFF0C;&#x5E94;&#x8BE5;&#x5982;&#x4F55;&#x4F7F;&#x7528;&#xFF1F;</p>
+<p> &#x7B54;&#xFF1A;&#x5728;&#x4E00;&#x4E9B;&#x5BF9;&#x5B89;&#x5168;&#x6027;&#x8981;&#x6C42;&#x4E0D;&#x90A3;&#x4E48;&#x9AD8;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x91C7;&#x7528;HTTP2&#x53EF;&#x4EE5;&#x6709;&#x66F4;&#x597D;&#x7684;&#x6027;&#x80FD;&#x8868;&#x73B0;&#x3002;&#x6BD4;&#x5982;&#x5185;&#x7F51;&#x3002;</p>
+</li>
+<li><p>&#x5E94;&#x8BE5;&#x600E;&#x4E48;&#x7406;&#x89E3;HTTP/2&#x91CC;&#x7684;&#x201D;&#x6D41;&#x201C;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x5B83;&#x662F;&#x865A;&#x62DF;&#x7684;&#xFF1F;</p>
+<p> &#x7B54;&#xFF1A;&#x5206;&#x7247;&#x4F20;&#x8F93;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x6700;&#x7EC8;&#x90FD;&#x8981;&#x6309;&#x7167;&#x987A;&#x5E8F;&#x7EC4;&#x88C5;&#xFF0C;&#x5C31;&#x60F3;&#x662F;&#x987A;&#x5E8F;&#x5230;&#x8FBE;&#x7684;&#x6C34;&#x6D41;&#x4E00;&#x6837;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x5B83;&#x53C8;&#x662F;&#x6CA1;&#x6709;&#x987A;&#x5E8F;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x8BF4;&#x662F;&#x865A;&#x62DF;&#x7684;&#x3002;</p>
+</li>
+</ol>
+<ol>
+<li><p>&#x5BF9;&#x6BD4;&#x4E0B;HTTP/2&#x548C;HTTP/1&#x3001;HTTPS&#x7684;&#x76F8;&#x540C;&#x70B9;&#x548C;&#x4E0D;&#x540C;&#x70B9;&#xFF1F;</p>
+<p> &#x76F8;&#x540C;&#x70B9;&#xFF1A;</p>
+<p> &#x90FD;&#x662F;&#x6784;&#x7B51;&#x5728;TCP/IP&#x534F;&#x8BAE;&#x4E4B;&#x4E0A;</p>
+<p> &#x4E0D;&#x540C;&#x70B9;&#xFF1A;</p>
+<ul>
+<li>HTTP&#x660E;&#x6587;&#x4F20;&#x8F93;&#xFF0C;&#x6CA1;&#x6709;&#x5B89;&#x5168;&#x6821;&#x9A8C;&#x673A;&#x5236;</li>
+<li>HTTPS&#x589E;&#x52A0;&#x4E86;SSL/TLS&#x589E;&#x52A0;&#x5B89;&#x5168;&#x6027;</li>
+<li>HTTPS/2&#x5F15;&#x5165;&#x4E86;&#x4E8C;&#x8FDB;&#x5236;&#x3001;&#x538B;&#x7F29;&#x8BF7;&#x6C42;&#x5934;&#x3001;&#x5E27;&#x5206;&#x5F00;&#x4F20;&#x8F93;&#x6765;&#x63D0;&#x9AD8;&#x6027;&#x80FD;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;SSL/TLS&#x5C42;&#x4E4B;&#x4E0A;&#x8FDB;&#x4E00;&#x6B65;&#x63D0;&#x9AD8;&#x5B89;&#x5168;&#x6027;&#x53D8;&#x5316;&#xFF0C;&#x8FD8;&#x80FD;&#x670D;&#x52A1;&#x5668;&#x63A8;&#x9001;</li>
+</ul>
+</li>
+</ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="chapter5-33-我应该迁移到HTTP2吗.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 33 我应该迁移到HTTP2吗">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"30 HTTP2特性概览","level":"1.7.1","depth":2,"next":{"title":"33 我应该迁移到HTTP2吗","level":"1.7.2","depth":2,"path":"chapter5-33-我应该迁移到HTTP2吗.md","ref":"./chapter5-33-我应该迁移到HTTP2吗.md","articles":[]},"previous":{"title":"探索篇","level":"1.7","depth":1,"ref":"","articles":[{"title":"30 HTTP2特性概览","level":"1.7.1","depth":2,"path":"chapter5-30-HTTP2特性概览.md","ref":"./chapter5-30-HTTP2特性概览.md","articles":[]},{"title":"33 我应该迁移到HTTP2吗","level":"1.7.2","depth":2,"path":"chapter5-33-我应该迁移到HTTP2吗.md","ref":"./chapter5-33-我应该迁移到HTTP2吗.md","articles":[]},{"title":"38 WebSocket-沙盒里的TCP","level":"1.7.3","depth":2,"path":"chapter5-38-WebSocket-沙盒里的TCP.md","ref":"./chapter5-38-WebSocket-沙盒里的TCP.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter5-30-HTTP2特性概览.md","mtime":"2020-12-28T07:36:56.065Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-13T09:50:05.670Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

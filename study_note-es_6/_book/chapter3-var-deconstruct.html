@@ -1,0 +1,610 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>3.变量的解构赋值 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="chapter4-string-extentions.html" />
+    
+    
+    <link rel="prev" href="chapter2-let-and-const.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    《ECMAScript 6 入门》](http://es6.ruanyifeng.com/#docs/)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="chapter1-babel.html">
+            
+                <a href="chapter1-babel.html">
+            
+                    
+                    1.ECMAScript 6简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="chapter2-let-and-const.html">
+            
+                <a href="chapter2-let-and-const.html">
+            
+                    
+                    2.let 和 const 命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4" data-path="chapter3-var-deconstruct.html">
+            
+                <a href="chapter3-var-deconstruct.html">
+            
+                    
+                    3.变量的解构赋值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="chapter4-string-extentions.html">
+            
+                <a href="chapter4-string-extentions.html">
+            
+                    
+                    4.字符串的扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="chapter5-string-new-methods.html">
+            
+                <a href="chapter5-string-new-methods.html">
+            
+                    
+                    5.字符串的新增方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="chapter12-symbol.html">
+            
+                <a href="chapter12-symbol.html">
+            
+                    
+                    12.Symbol
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="chapter13-map-and-set-structure.html">
+            
+                <a href="chapter13-map-and-set-structure.html">
+            
+                    
+                    13.Set 和 Map 数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="chapter16-promise.html">
+            
+                <a href="chapter16-promise.html">
+            
+                    
+                    16.Promise 对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="chapter17-iterator.html">
+            
+                <a href="chapter17-iterator.html">
+            
+                    
+                    17.Iterator 和 for...of 循环
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="chapter18-generator-syntax.html">
+            
+                <a href="chapter18-generator-syntax.html">
+            
+                    
+                    18.Generator 函数的语法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="chapter19-generator-for-async.html">
+            
+                <a href="chapter19-generator-for-async.html">
+            
+                    
+                    19.Generator 函数的异步应用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="chapter20-async-func.html">
+            
+                <a href="chapter20-async-func.html">
+            
+                    
+                    20.async 函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="chapter21-class-basis.html">
+            
+                <a href="chapter21-class-basis.html">
+            
+                    
+                    21.Class 的基本语法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="chapter23-module.html">
+            
+                <a href="chapter23-module.html">
+            
+                    
+                    23.Module 的语法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >3.变量的解构赋值</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x53D8;&#x91CF;&#x7684;&#x89E3;&#x6784;&#x8D4B;&#x503C;">&#x53D8;&#x91CF;&#x7684;&#x89E3;&#x6784;&#x8D4B;&#x503C;</h1>
+<blockquote>
+<ol>
+<li>&#x6570;&#x7EC4;&#x7684;&#x89E3;&#x6784;&#x8D4B;&#x503C;
+2.&#x5BF9;&#x8C61;&#x7684;&#x89E3;&#x6784;&#x8D4B;&#x503C;
+3.&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x89E3;&#x6784;&#x8D4B;&#x503C;
+4.&#x6570;&#x503C;&#x548C;&#x5E03;&#x5C14;&#x503C;&#x7684;&#x89E3;&#x6784;&#x8D4B;&#x503C;
+5.&#x51FD;&#x6570;&#x53C2;&#x6570;&#x7684;&#x89E3;&#x6784;&#x8D4B;&#x503C;
+6.&#x5706;&#x62EC;&#x53F7;&#x95EE;&#x9898;
+7.&#x7528;&#x9014;</li>
+</ol>
+</blockquote>
+<h2 id="1&#x6570;&#x7EC4;&#x7684;&#x89E3;&#x6784;&#x8D4B;&#x503C;">1.&#x6570;&#x7EC4;&#x7684;&#x89E3;&#x6784;&#x8D4B;&#x503C;</h2>
+<h2 id="&#x57FA;&#x672C;&#x7528;&#x6CD5;">&#x57FA;&#x672C;&#x7528;&#x6CD5;</h2>
+<pre><code>let [head, ...tail] = [1, 2, 3, 4];
+head // 1
+tail // [2, 3, 4]
+
+let [a, [b], d] = [1, [2, 3], 4];
+a // 1
+b // 2
+d // 4
+</code></pre><p>&#x53EF;&#x904D;&#x5386;&#x7684;&#x7ED3;&#x6784;&#xFF08;&#x5177;&#x6709; Iterator &#x63A5;&#x53E3;&#xFF09;&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x91C7;&#x7528;&#x6570;&#x7EC4;&#x5F62;&#x5F0F;&#x7684;&#x89E3;&#x6784;&#x8D4B;&#x503C;&#x3002;</p>
+<pre><code>let [x, y, z] = new Set([&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]);
+x // &quot;a&quot;
+
+function* fibs() {
+  let a = 0;
+  let b = 1;
+  while (true) {
+    yield a;
+    [a, b] = [b, a + b];
+  }
+}
+
+let [first, second, third, fourth, fifth, sixth] = fibs();
+sixth // 5
+</code></pre><h3 id="&#x9ED8;&#x8BA4;&#x503C;">&#x9ED8;&#x8BA4;&#x503C;</h3>
+<p>&#x5F53;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x6210;&#x5458;&#x4E25;&#x683C;&#x7B49;&#x4E8E;undefined&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#x624D;&#x4F1A;&#x751F;&#x6548;&#x3002;</p>
+<pre><code>let [foo = true] = [];
+foo // true
+
+let [x, y = &apos;b&apos;] = [&apos;a&apos;]; // x=&apos;a&apos;, y=&apos;b&apos;
+let [x, y = &apos;b&apos;] = [&apos;a&apos;, undefined]; // x=&apos;a&apos;, y=&apos;b&apos;
+</code></pre><p>&#x9ED8;&#x8BA4;&#x503C;&#x662F;&#x4E00;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#x4F1A;&#x60F0;&#x6027;&#x6C42;&#x503C;&#xFF0C;&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x56E0;&#x4E3A;x&#x80FD;&#x53D6;&#x5230;&#x503C;&#xFF0C;&#x6240;&#x4EE5;&#x51FD;&#x6570;f&#x6839;&#x672C;&#x4E0D;&#x4F1A;&#x6267;&#x884C;</p>
+<pre><code>function f() {
+  console.log(&apos;aaa&apos;);
+}
+
+let [x = f()] = [1];
+
+
+// &#x7B49;&#x4EF7;&#x4E8E;&#x5982;&#x4E0B;&#x4EE3;&#x7801;
+
+let x;
+if ([1][0] === undefined) {
+  x = f();
+} else {
+  x = [1][0];
+}
+</code></pre><p>&#x9ED8;&#x8BA4;&#x503C;&#x53EF;&#x4EE5;&#x5F15;&#x7528;&#x89E3;&#x6784;&#x8D4B;&#x503C;&#x7684;&#x5176;&#x4ED6;&#x53D8;&#x91CF;&#xFF0C;&#x4F46;&#x8BE5;&#x53D8;&#x91CF;&#x5FC5;&#x987B;&#x5DF2;&#x7ECF;&#x58F0;&#x660E;&#x3002;</p>
+<pre><code>let [x = 1, y = x] = [];     // x=1; y=1
+let [x = 1, y = x] = [2];    // x=2; y=2
+let [x = 1, y = x] = [1, 2]; // x=1; y=2
+let [x = y, y = 1] = [];     // ReferenceError: y is not defined
+</code></pre><h2 id="2&#x5BF9;&#x8C61;&#x7684;&#x89E3;&#x6784;&#x8D4B;&#x503C;">2.&#x5BF9;&#x8C61;&#x7684;&#x89E3;&#x6784;&#x8D4B;&#x503C;</h2>
+<h3 id="&#x57FA;&#x672C;&#x7528;&#x6CD5;">&#x57FA;&#x672C;&#x7528;&#x6CD5;</h3>
+<pre><code>let { bar, foo } = { foo: &apos;aaa&apos;, bar: &apos;bbb&apos; };
+foo // &quot;aaa&quot;
+bar // &quot;bbb&quot;
+
+let { baz } = { foo: &apos;aaa&apos;, bar: &apos;bbb&apos; };
+baz // undefined
+
+
+let { log, sin, cos } = Math;
+
+const { log } = console;
+log(&apos;hello&apos;) // hello
+</code></pre><p><strong>&#x53D8;&#x91CF;&#x540D;&#x4E0E;&#x5C5E;&#x6027;&#x540D;&#x4E0D;&#x4E00;&#x81F4;</strong></p>
+<pre><code>let { foo: baz } = { foo: &apos;aaa&apos;, bar: &apos;bbb&apos; };
+baz // &quot;aaa&quot;
+
+let obj = { first: &apos;hello&apos;, last: &apos;world&apos; };
+
+// &#x771F;&#x6B63;&#x88AB;&#x8D4B;&#x503C;&#x7684;&#x662F;&#x540E;&#x8005;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x524D;&#x8005;&#x3002;
+let { first: f, last: l } = obj;
+
+f // &apos;hello&apos;
+l // &apos;world&apos;
+</code></pre><p><strong>&#x5BB9;&#x6613;&#x9020;&#x6210;&#x6DF7;&#x6DC6;&#x7684;<code>&#x524D;&#x8005;</code></strong></p>
+<pre><code>let obj = {
+  p: [
+    &apos;Hello&apos;,
+    { y: &apos;World&apos; }
+  ]
+};
+
+let { p: [x, { y }] } = obj;
+x // &quot;Hello&quot;
+y // &quot;World&quot;
+</code></pre><p>p&#x662F;&#x6A21;&#x5F0F;&#xFF0C;&#x4E0D;&#x662F;&#x53D8;&#x91CF;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x4F1A;&#x88AB;&#x8D4B;&#x503C;&#xFF0C;&#x5982;&#x679C;p&#x4E5F;&#x8981;&#x4F5C;&#x4E3A;&#x53D8;&#x91CF;&#x8D4B;&#x503C;&#xFF0C;&#x53EF;&#x4EE5;&#x5199;&#x6210;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#x3002;</p>
+<pre><code>let obj = {
+  p: [
+    &apos;Hello&apos;,
+    { y: &apos;World&apos; }
+  ]
+};
+
+let { p, p: [x, { y }] } = obj;
+x // &quot;Hello&quot;
+y // &quot;World&quot;
+p // [&quot;Hello&quot;, {y: &quot;World&quot;}]
+</code></pre><p>&#x8FD8;&#x6709;&#x66F4;&#x590D;&#x6742;&#x7684;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;</p>
+<pre><code>const node = {
+  loc: {
+    start: {
+      line: 1,
+      column: 5
+    }
+  }
+};
+
+let { loc, loc: { start }, loc: { start: { line }} } = node;
+line // 1
+loc  // Object {start: Object}
+start // Object {line: 1, column: 5}
+</code></pre><p><strong>&#x5D4C;&#x5957;&#x8D4B;&#x503C;</strong></p>
+<pre><code>let obj = {};
+let arr = [];
+
+({ foo: obj.prop, bar: arr[0] } = { foo: 123, bar: true });
+
+obj // {prop:123}
+arr // [true]
+</code></pre><h3 id="&#x9ED8;&#x8BA4;&#x503C;">&#x9ED8;&#x8BA4;&#x503C;</h3>
+<p>&#x9ED8;&#x8BA4;&#x503C;&#x751F;&#x6548;&#x7684;&#x6761;&#x4EF6;&#x662F;&#xFF0C;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x503C;&#x4E25;&#x683C;&#x7B49;&#x4E8E;undefined&#x3002;</p>
+<pre><code>var {x = 3} = {};
+x // 3
+
+var {x = 3} = {x: undefined};
+x // 3
+
+var {x = 3} = {x: null};
+x // null
+
+var {x, y = 5} = {x: 1};
+x // 1
+y // 5
+
+var {x: y = 3} = {};
+y // 3
+
+var {x: y = 3} = {x: 5};
+y // 5
+
+var { message: msg = &apos;Something went wrong&apos; } = {};
+msg // &quot;Something went wrong&quot;
+</code></pre><h2 id="3&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x89E3;&#x6784;&#x8D4B;&#x503C;">3.&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x89E3;&#x6784;&#x8D4B;&#x503C;</h2>
+<pre><code>const [a, b, c, d, e] = &apos;hello&apos;;
+a // &quot;h&quot;
+b // &quot;e&quot;
+c // &quot;l&quot;
+d // &quot;l&quot;
+e // &quot;o&quot;
+
+let {length : len} = &apos;hello&apos;;
+len // 5
+</code></pre><h2 id="4&#x6570;&#x503C;&#x548C;&#x5E03;&#x5C14;&#x503C;&#x7684;&#x89E3;&#x6784;&#x8D4B;&#x503C;">4.&#x6570;&#x503C;&#x548C;&#x5E03;&#x5C14;&#x503C;&#x7684;&#x89E3;&#x6784;&#x8D4B;&#x503C;</h2>
+<p>&#x8981;&#x7B49;&#x53F7;&#x53F3;&#x8FB9;&#x7684;&#x503C;&#x4E0D;&#x662F;&#x5BF9;&#x8C61;&#x6216;&#x6570;&#x7EC4;&#xFF0C;&#x5C31;&#x5148;&#x5C06;&#x5176;&#x8F6C;&#x4E3A;&#x5BF9;&#x8C61;</p>
+<pre><code>let {toString: s} = 123;
+s === Number.prototype.toString // true
+
+let {toString: s} = true;
+s === Boolean.prototype.toString // true
+
+let { prop: x } = undefined; // TypeError
+let { prop: y } = null; // TypeError
+</code></pre><h2 id="5&#x51FD;&#x6570;&#x53C2;&#x6570;&#x7684;&#x89E3;&#x6784;&#x8D4B;&#x503C;">5.&#x51FD;&#x6570;&#x53C2;&#x6570;&#x7684;&#x89E3;&#x6784;&#x8D4B;&#x503C;</h2>
+<pre><code>[[1, 2], [3, 4]].map(([a, b]) =&gt; a + b);
+// [ 3, 7 ]
+</code></pre><p>&#x672C;&#x8282;&#x4ECB;&#x7ECD;&#x4E86;&#x4E00;&#x4E9B;&#x98CE;&#x9A9A;&#x7684;&#x7528;&#x6CD5;&#xFF0C;&#x5F92;&#x589E;&#x7406;&#x89E3;&#x96BE;&#x5EA6;&#xFF0C;&#x5C31;&#x4E0D;&#x505A;&#x7B14;&#x8BB0;&#x4E86;&#x3002;</p>
+<h2 id="6&#x5706;&#x62EC;&#x53F7;&#x95EE;&#x9898;">6.&#x5706;&#x62EC;&#x53F7;&#x95EE;&#x9898;</h2>
+<p>&#x7565;&#x3002;</p>
+<h2 id="7-&#x7528;&#x9014;">7. &#x7528;&#x9014;</h2>
+<p>&#x5217;&#x4E3E;&#x4E86;7&#x4E2D;&#x5B9E;&#x9645;&#x7528;&#x9014;&#xFF0C; &#x5355;<strong>&#x904D;&#x5386; Map &#x7ED3;&#x6784;</strong>&#x662F;&#x81EA;&#x5DF1;&#x5E76;&#x4E0D;&#x77E5;&#x9053;&#x7684;</p>
+<pre><code>const map = new Map();
+map.set(&apos;first&apos;, &apos;hello&apos;);
+map.set(&apos;second&apos;, &apos;world&apos;);
+
+for (let [key, value] of map) {
+  console.log(key + &quot; is &quot; + value);
+}
+// first is hello
+// second is world
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="chapter2-let-and-const.html" class="navigation navigation-prev " aria-label="Previous page: 2.let 和 const 命令">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="chapter4-string-extentions.html" class="navigation navigation-next " aria-label="Next page: 4.字符串的扩展">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"3.变量的解构赋值","level":"1.4","depth":1,"next":{"title":"4.字符串的扩展","level":"1.5","depth":1,"path":"chapter4-string-extentions.md","ref":"chapter4-string-extentions.md","articles":[]},"previous":{"title":"2.let 和 const 命令","level":"1.3","depth":1,"path":"chapter2-let-and-const.md","ref":"chapter2-let-and-const.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter3-var-deconstruct.md","mtime":"2020-12-28T07:36:56.022Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-13T09:08:55.041Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

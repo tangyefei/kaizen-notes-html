@@ -1,0 +1,677 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>38 WebSocket-沙盒里的TCP · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="chapter5-33-我应该迁移到HTTP2吗.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="chapter0-0-开篇词-to-be-a-http-hero.html">
+            
+                <a href="chapter0-0-开篇词-to-be-a-http-hero.html">
+            
+                    
+                    开篇词
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    基础篇
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="chapter1-1-时势与英雄：HTTP的前世今生.html">
+            
+                <a href="chapter1-1-时势与英雄：HTTP的前世今生.html">
+            
+                    
+                    1 时势与英雄：HTTP的前世今生
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="chapter1-2-http是什么，http又不是什么.html">
+            
+                <a href="chapter1-2-http是什么，http又不是什么.html">
+            
+                    
+                    2 HTT是什么，HTT又不是什么
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="chapter1-3-HTTP世界全览：与HTTP相关的各种概念.html">
+            
+                <a href="chapter1-3-HTTP世界全览：与HTTP相关的各种概念.html">
+            
+                    
+                    3 HTTP世界全览：与HTTP相关的各种概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="chapter1-4-HTTP世界全览：与HTTP相关的各种协议.html">
+            
+                <a href="chapter1-4-HTTP世界全览：与HTTP相关的各种协议.html">
+            
+                    
+                    4 HTTP世界全览：与HTTP相关的各种协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="chapter1-5-常说的四层七层到底是什么.html">
+            
+                <a href="chapter1-5-常说的四层七层到底是什么.html">
+            
+                    
+                    5 常说的四层七层到底是什么？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="chapter1-6-域名里有哪些门道.html">
+            
+                <a href="chapter1-6-域名里有哪些门道.html">
+            
+                    
+                    6 域名里有哪些门道？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="chapter1-7-自己动手搭建HTTP实验环境.html">
+            
+                <a href="chapter1-7-自己动手搭建HTTP实验环境.html">
+            
+                    
+                    7 自己动手搭建HTTP实验环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    破冰篇
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="chapter2-8-键入网址再按回车，后面究竟发生了什么.html">
+            
+                <a href="chapter2-8-键入网址再按回车，后面究竟发生了什么.html">
+            
+                    
+                    8 键入网址再按回车，后面究竟发生了什么？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="chapter2-9-HTTP报文什么是样子的.html">
+            
+                <a href="chapter2-9-HTTP报文什么是样子的.html">
+            
+                    
+                    9 HTTP报文什么是样子的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="chapter2-10-应该如何理解请求方法.html">
+            
+                <a href="chapter2-10-应该如何理解请求方法.html">
+            
+                    
+                    10 应该如何理解请求方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="chapter2-11-你能写出正确网址吗.html">
+            
+                <a href="chapter2-11-你能写出正确网址吗.html">
+            
+                    
+                    11 你能写出正确网址吗？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="chapter2-12-响应状态码应该怎么用.html">
+            
+                <a href="chapter2-12-响应状态码应该怎么用.html">
+            
+                    
+                    12 响应状态码应该怎么用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="chapter2-13-HTTP有哪些特点.html">
+            
+                <a href="chapter2-13-HTTP有哪些特点.html">
+            
+                    
+                    13 HTTP有哪些特点？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="chapter2-14-HTTP有哪些优点-又有哪些缺点.html">
+            
+                <a href="chapter2-14-HTTP有哪些优点-又有哪些缺点.html">
+            
+                    
+                    14 HTTP有哪些优点，又有哪些缺点？
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    进阶篇
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="chapter3-15-HTTP的实体数据.html">
+            
+                <a href="chapter3-15-HTTP的实体数据.html">
+            
+                    
+                    15 HTTP的实体数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="chapter3-17-HTTP的连接管理.html">
+            
+                <a href="chapter3-17-HTTP的连接管理.html">
+            
+                    
+                    17 HTTP的连接管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    安全篇
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="chapter4-23-HTTPS是什么，SSL-TLS又是什么.html">
+            
+                <a href="chapter4-23-HTTPS是什么，SSL-TLS又是什么.html">
+            
+                    
+                    23 HTTPS是什么，SSL TLS又是什么？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="chapter4-24-对称加密与非对称加密.html">
+            
+                <a href="chapter4-24-对称加密与非对称加密.html">
+            
+                    
+                    24 对称加密与非对称加密
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="chapter4-25-数字签名与证书.html">
+            
+                <a href="chapter4-25-数字签名与证书.html">
+            
+                    
+                    25 数字签名与证书
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="chapter4-26-TLS1_2连接过程解析.html">
+            
+                <a href="chapter4-26-TLS1_2连接过程解析.html">
+            
+                    
+                    26 TLS1_2连接过程解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="chapter4-28-HTTPS太慢怎么优化.html">
+            
+                <a href="chapter4-28-HTTPS太慢怎么优化.html">
+            
+                    
+                    28 HTTPS太慢怎么优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    探索篇
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="chapter5-30-HTTP2特性概览.html">
+            
+                <a href="chapter5-30-HTTP2特性概览.html">
+            
+                    
+                    30 HTTP2特性概览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="chapter5-33-我应该迁移到HTTP2吗.html">
+            
+                <a href="chapter5-33-我应该迁移到HTTP2吗.html">
+            
+                    
+                    33 我应该迁移到HTTP2吗
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7.3" data-path="chapter5-38-WebSocket-沙盒里的TCP.html">
+            
+                <a href="chapter5-38-WebSocket-沙盒里的TCP.html">
+            
+                    
+                    38 WebSocket-沙盒里的TCP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >38 WebSocket-沙盒里的TCP</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="38-websocket&#x6C99;&#x76D2;&#x91CC;&#x7684;tcp">38 WebSocket:&#x6C99;&#x76D2;&#x91CC;&#x7684;TCP</h1>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>TCP Socket</code>&#x8FD9;&#x79CD;&#x529F;&#x80FD;&#x63A5;&#x53E3;&#xFF0C;&#x5728;&#x4F20;&#x8F93;&#x5C42;&#x6536;&#x53D1;&#x6570;&#x636E;&#x3002;</p>
+<p>WebSocket&#x662F;&#x8FD0;&#x884C;&#x5728;HTTP&#x4E0A;&#x7684;Socket&#x901A;&#x4FE1;&#x89C4;&#x8303;&#xFF0C;&#x63D0;&#x4F9B;&#x4E0E;<code>TCP Socket</code>&#x7C7B;&#x4F3C;&#x7684;&#x529F;&#x80FD;&#x3002;</p>
+<p>&#x51C6;&#x786E;&#x5730;&#x8BF4;&#xFF0C;&#x5B83;&#x662F;&#x57FA;&#x4E8E;TCP&#x7684;&#x8F7B;&#x91CF;&#x7F51;&#x7EDC;&#x901A;&#x4FE1;&#x534F;&#x8BAE;&#xFF0C;&#x5728;&#x5730;&#x4F4D;&#x4E0A;&#x548C;HTTP&#x5E73;&#x7EA7;&#x3002;</p>
+<h2 id="&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x6709;websocket">&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x6709;WebSocket</h2>
+<p>HTTP&#x7684;&#x201C;&#x8BF7;&#x6C42;-&#x5E94;&#x7B54;&#x201D;&#x6A21;&#x5F0F;&#xFF0C;&#x6CA1;&#x6709;Websocket&#x4E4B;&#x524D;&#xFF0C;&#x5373;&#x65F6;&#x6D88;&#x606F;&#x3001;&#x7F51;&#x7EDC;&#x6E38;&#x620F;&#x7B49;&#x9700;&#x8981;&#x201C;&#x5B9E;&#x65F6;&#x901A;&#x4FE1;&#x201D;&#x7684;&#x9886;&#x57DF;&#xFF0C;&#x5FC5;&#x987B;&#x4F9D;&#x9760;&#x201C;&#x8F6E;&#x8BAD;&#x201D;&#x8FD9;&#x79CD;&#x8017;&#x8D39;&#x5E26;&#x5BBD;&#x3001;CPU&#x65B9;&#x5F0F;&#x6765;&#x5B9E;&#x65F6;&#x901A;&#x4FE1;&#x3002;&#x5B83;&#x539F;&#x672C;&#x662F;HTML5&#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x540E;&#x6765;&#x6210;&#x4E86;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x6807;&#x51C6;&#x3002;</p>
+<p>&#x56E0;&#x4E3A;&#x5B83;&#x8FD0;&#x884C;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E0A;&#xFF0C;&#x4E3A;&#x4E86;&#x4FBF;&#x4E8E;&#x63A8;&#x5E7F;&#xFF0C;&#x8D77;&#x540D;&#x7684;&#x65F6;&#x5019;&#x5C31;&#x6545;&#x610F;&#x4F7F;&#x7528; Web &#x6765;&#x5411;HTTP&#x9760;&#x62E2;&#xFF0C;&#x4ECE;&#x800C;&#x5F97;&#x540D; WebSocket&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x4F1A;&#x4F7F;&#x7528;&#x6D4F;&#x89C8;&#x5668;&#x91CC;&#x7684;API&#x6765;&#x8C03;&#x7528;WebSocket&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x4E0D;&#x662F;&#x201C;&#x8C03;&#x7528;&#x63A5;&#x53E3;&#x7684;&#x96C6;&#x5408;&#x201D;&#xFF0C;&#x800C;&#x662F;&#x4E00;&#x4E2A;&#x901A;&#x4FE1;&#x4E9B;&#x800C;&#x5DF2;&#xFF1A;<code>TCP over Web</code>&#x66F4;&#x6070;&#x5F53;&#x3002;</p>
+<p>&#x5B83;&#x7684;&#x7279;&#x70B9;&#x662F;&#xFF1A;</p>
+<ul>
+<li>&#x5168;&#x53CC;&#x5DE5;&#x901A;&#x4FE1;</li>
+<li>&#x4E8C;&#x8FDB;&#x5236;&#x5E27;&#x7ED3;&#x6784;&#xFF0C;&#x8BED;&#x6CD5;&#x3001;&#x8BED;&#x4E49;&#x548C;HTTP&#x4E0D;&#x517C;&#x5BB9;</li>
+<li>&#x6CBF;&#x7528;HTTP&#x7684;&#x683C;&#x5F0F;&#xFF0C;&#x4E4B;&#x5728;&#x534F;&#x8BAE;&#x4E0A;&#x505A;&#x4E86;&#x533A;&#x5206; ws&#x548C;wss&#xFF0C;&#x7AEF;&#x53E3;&#x5BF9;&#x5E94;80&#x3001;443</li>
+</ul>
+<p>&#x56E0;&#x4E3A;&#x4E92;&#x8054;&#x7F51;&#x9632;&#x706B;&#x5899;&#x5C4F;&#x853D;&#x4E86;&#x7EDD;&#x5927;&#x591A;&#x6570;&#x7AEF;&#x53E3;&#xFF0C;&#x53EA;&#x5BF9;80&#x3001;443&#x653E;&#x884C;&#xFF0C;&#x6240;&#x4EE5;&#x5B83;&#x4F2A;&#x88C5;&#x6210;HTTP&#x534F;&#x8BAE;</p>
+<h2 id="&#x5E27;&#x7ED3;&#x6784;">&#x5E27;&#x7ED3;&#x6784;</h2>
+<p>&#x7565;&#xFF0C;&#x524D;&#x51E0;&#x8282;&#x5185;&#x5BB9;&#x6CA1;&#x8BA4;&#x771F;&#x770B;&#xFF0C;&#x8FD9;&#x5757;&#x6709;&#x70B9;&#x96BE;&#x7406;&#x89E3;&#x3002;&#x540E;&#x7EED;&#x8865;&#x5145;&#x3002;</p>
+<h2 id="websocket&#x7684;&#x63E1;&#x624B;">Websocket&#x7684;&#x63E1;&#x624B;</h2>
+<p>&#x5B83;&#x7684;&#x63E1;&#x624B;&#x642D;&#x4E0A;&#x4E86;HTTP&#x7684;&#x4FBF;&#x8F66;&#xFF0C;&#x5229;&#x7528;&#x201C;&#x534F;&#x8BAE;&#x5347;&#x7EA7;&#x201D;&#xFF0C;&#x4F2A;&#x88C5;&#x6210;HTTP&#xFF0C;&#x901A;&#x5E38;&#x4F1A;&#x901A;&#x8FC7;&#x5982;&#x4E0B;&#x5B57;&#x6BB5;&#xFF1A;</p>
+<ul>
+<li>Connection: Upgrade</li>
+<li>Upgrade: websocket</li>
+</ul>
+<p>&#x5F53;&#x7136;&#x8FD8;&#x4F1A;&#x643A;&#x5E26;&#x4E00;&#x4E9B;&#x5B57;&#x6BB5;&#x7528;&#x4E8E;&#x9632;&#x6B62;&#x666E;&#x901A;HTTP&#x6D88;&#x606F;&#x88AB;&#x8BC6;&#x522B;&#x4E3A;WebSocket&#x3002;</p>
+<p>&#x670D;&#x52A1;&#x5668;&#x63A5;&#x6536;&#x5230;&#x4E0A;&#x8FF0; &#x62A5;&#x6587;&#xFF0C;&#x5C31;&#x4F1A;&#x8FD4;&#x56DE; 101 Switching Protocols&#xFF0C;&#x901A;&#x77E5;&#x5BA2;&#x6237;&#x7AEF;&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x662F;&#x7528;Websocket&#x534F;&#x8BAE;&#x901A;&#x4FE1;&#x3002;</p>
+<p>&#x63E1;&#x624B;&#x5B8C;&#x6210;&#x540E;&#x4F20;&#x8F93;&#x7684;&#x6570;&#x636E;&#x5C31;&#x4E0D;&#x518D;&#x662F;HTTP&#x62A5;&#x6587;&#xFF0C;&#x800C;&#x662F;WebSocket&#x683C;&#x5F0F;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x5E27;&#x3002;</p>
+<h2 id="&#x8BC4;&#x8BBA;&#x533A;">&#x8BC4;&#x8BBA;&#x533A;</h2>
+<p>&#x4E00;&#x4E2A;&#x4E0D;&#x9519;&#x7684;&#x603B;&#x7ED3;&#xFF1A;</p>
+<ul>
+<li><p>HTTP&#x662F;&#x901A;&#x8FC7;TCP&#x8FDB;&#x884C;&#x8FDE;&#x63A5;&#x3001;&#x6536;&#x53D1;&#x6D88;&#x606F;&#x7684;</p>
+</li>
+<li><p>Websocket&#x57FA;&#x4E8E;HTTP&#x534F;&#x8BAE;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;&#xFF0C;&#x5728;&#x6536;&#x5230;&#x670D;&#x52A1;&#x5668;&#x7684;101&#x54CD;&#x5E94;&#x540E;&#xFF0C;&#x540E;&#x7EED;&#x7684;&#x6D88;&#x606F;&#x6536;&#x3001;&#x53D1;&#x4F1A;&#x4F7F;&#x7528;WebSocket&#x7684;&#x534F;&#x8BAE;&#x8FDB;&#x884C;</p>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="chapter5-33-我应该迁移到HTTP2吗.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 33 我应该迁移到HTTP2吗">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"38 WebSocket-沙盒里的TCP","level":"1.7.3","depth":2,"previous":{"title":"33 我应该迁移到HTTP2吗","level":"1.7.2","depth":2,"path":"chapter5-33-我应该迁移到HTTP2吗.md","ref":"./chapter5-33-我应该迁移到HTTP2吗.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter5-38-WebSocket-沙盒里的TCP.md","mtime":"2020-12-28T07:36:56.065Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-13T09:50:05.670Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

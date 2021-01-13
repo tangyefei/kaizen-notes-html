@@ -1,0 +1,368 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>第4章 模块化React和Redux应用 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="chapter-5.html" />
+    
+    
+    <link rel="prev" href="chapter-3.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    《深入浅出React和Redux》
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="chapter-1.html">
+            
+                <a href="chapter-1.html">
+            
+                    
+                    第1章 ReactJS-新的前端思维方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="chapter-2.html">
+            
+                <a href="chapter-2.html">
+            
+                    
+                    第2章 设计高质量的React组件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="chapter-3.html">
+            
+                <a href="chapter-3.html">
+            
+                    
+                    第3章 从Flux到Redux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5" data-path="chapter-4.html">
+            
+                <a href="chapter-4.html">
+            
+                    
+                    第4章 模块化React和Redux应用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="chapter-5.html">
+            
+                <a href="chapter-5.html">
+            
+                    
+                    第5章 React组件的性能优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >第4章 模块化React和Redux应用</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x7B2C;4&#x7AE0;-&#x6A21;&#x5757;&#x5316;react&#x548C;redux&#x5E94;&#x7528;">&#x7B2C;4&#x7AE0; &#x6A21;&#x5757;&#x5316;React&#x548C;Redux&#x5E94;&#x7528;</h1>
+<h2 id="1-&#x6A21;&#x5757;&#x5316;&#x5E94;&#x7528;&#x7684;&#x8981;&#x70B9;">1. &#x6A21;&#x5757;&#x5316;&#x5E94;&#x7528;&#x7684;&#x8981;&#x70B9;</h2>
+<ul>
+<li>&#x4EE3;&#x7801;&#x6587;&#x4EF6;&#x7684;&#x7EC4;&#x7EC7;&#x7ED3;&#x6784;</li>
+<li>&#x786E;&#x5B9A;&#x6A21;&#x5757;&#x7684;&#x8FB9;&#x754C;</li>
+<li>Store&#x7684;&#x72B6;&#x6001;&#x6811;&#x8BBE;&#x8BA1;</li>
+</ul>
+<p>&#x540E;&#x7EED;&#x5C06;&#x56F4;&#x7ED5;&#x4E00;&#x4E2A;Todos&#x7684;&#x5E94;&#x7528;&#x6765;&#x4ECB;&#x7ECD;&#x5404;&#x4E2A;&#x8981;&#x70B9;</p>
+<h2 id="2-&#x4EE3;&#x7801;&#x6587;&#x4EF6;&#x7684;&#x7EC4;&#x7EC7;&#x65B9;&#x5F0F;">2. &#x4EE3;&#x7801;&#x6587;&#x4EF6;&#x7684;&#x7EC4;&#x7EC7;&#x65B9;&#x5F0F;</h2>
+<h3 id="&#x6309;&#x89D2;&#x8272;&#x7EC4;&#x7EC7;">&#x6309;&#x89D2;&#x8272;&#x7EC4;&#x7EC7;</h3>
+<p>&#x5178;&#x578B;&#x7684;&#x662F; controler/view/model &#x5728;&#x5404;&#x81EA;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x5728;redux&#x5E94;&#x7528;&#x4E2D;&#x5219;&#x53D8;&#x6210;&#x4E86;reducer/action/component/container&#x3002;</p>
+<h3 id="&#x6309;&#x529F;&#x80FD;&#x7EC4;&#x7EC7;">&#x6309;&#x529F;&#x80FD;&#x7EC4;&#x7EC7;</h3>
+<p>&#x6BD4;&#x5982;Todos&#x7684;&#x5E94;&#x7528;&#xFF0C;&#x7ED3;&#x6784;&#x88AB;&#x5212;&#x5206;&#x4E3A;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>todoList/ 
+  actions.js 
+  actionTypes. js 
+  index. js 
+  reducer. js 
+  views/ 
+    component. js 
+    container. js 
+filter/ 
+  actions. js 
+  actionTypes. js 
+  index. js 
+  reducer. js 
+  views/ 
+    component. js 
+    container. js
+</code></pre><p>&#x5B83;&#x7684;&#x597D;&#x5904;&#x662F;&#xFF0C;&#x8981;&#x4FEE;&#x6539;&#x67D0;&#x4E2A;&#x529F;&#x80FD;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x5173;&#x6CE8;&#x67D0;&#x4E2A;&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x7684;&#x76EE;&#x5F55;&#x5373;&#x53EF;&#x3002;</p>
+<h2 id="3-&#x6A21;&#x5757;&#x63A5;&#x53E3;">3. &#x6A21;&#x5757;&#x63A5;&#x53E3;</h2>
+<p>&#x4F20;&#x7EDF;MVC&#x6846;&#x67B6;&#x7684;&#x95EE;&#x9898;&#x5728;&#x4E8E;View&#x548C;Model&#x4E4B;&#x95F4;&#x7684;&#x901A;&#x4FE1;&#x4F1A;&#x6270;&#x4E71;&#x6570;&#x636E;&#x6D41;&#x8F6C;&#xFF0C;&#x4ECE;&#x800C;&#x53D8;&#x7684;&#x96BE;&#x4EE5;&#x4E3A;&#x80E1;&#x3002;&#x800C;Flux&#x7684;&#x505A;&#x6CD5;&#x662F;&#xFF1A;</p>
+<ul>
+<li>&#x72B6;&#x6001;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x4E8E;Store&#x4E2D;</li>
+<li>Store&#x4E2D;&#x901A;&#x8FC7;&#x7EE7;&#x627F;EventEmitter&#x5B9E;&#x73B0;&#x4E86; add/removeListener,trigger</li>
+<li>View&#x7684;&#x64CD;&#x4F5C;&#x4F1A;&#x89E6;&#x53D1;Action</li>
+<li>Action&#x901A;&#x8FC7;Dispatcher&#x6765;&#x6267;&#x884C;&#x52A8;&#x4F5C;</li>
+<li>Dispatcher&#x7684;&#x5B9A;&#x4E49;&#x4E2D;&#xFF0C;&#x5219;&#x5305;&#x62EC;&#x64CD;&#x4F5C;Store&#x7684;&#x6570;&#x636E; &#x548C; &#x901A;&#x8FC7;Store&#x53BB;trigger</li>
+<li>&#x5728;View&#x4E2D;&#xFF0C;&#x628A;Store&#x4E2D;&#x83B7;&#x53D6;&#x5230;&#x7684;&#x6570;&#x636E;&#x8BBE;&#x7F6E;&#x5230;state&#x4E2D;&#xFF0C;Store&#x7684;addListener&#x7684;&#x5904;&#x7406;&#x56DE;&#x8C03;&#x4E2D;&#x4F7F;&#x7528;View&#x4E2D;&#x7684;onChange&#x65B9;&#x6CD5;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x76D1;&#x542C;&#x6570;&#x636E;&#x53D8;&#x5316;&#x4E86;&#xFF0C;&#x4E00;&#x65E6;&#x53D8;&#x5316;&#xFF0C;&#x518D;&#x83B7;&#x53D6;State&#x6570;&#x636E;&#xFF0C;&#x8BBE;&#x7F6E;&#x5230;&#x81EA;&#x5DF1;&#x7684;State&#x4E2D;</li>
+</ul>
+<p>&#x7B80;&#x8A00;&#x4E4B;&#xFF1A;</p>
+<p>&#x4F5C;&#x8005;&#x63A8;&#x8350;&#x7684;&#x505A;&#x6CD5;&#x662F;&#xFF0C;&#x628A;&#x4E00;&#x4E2A;&#x529F;&#x80FD;&#x6A21;&#x5757;&#x7684;&#x6240;&#x6709;&#x4EE3;&#x7801;&#x90FD;&#x7EC4;&#x7EC7;&#x5230;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#xFF0C;&#x7136;&#x540E;&#x66B4;&#x9732;&#x4E00;&#x4E2A;&#x5BF9;&#x5916;&#x7684;js&#xFF08;&#x901A;&#x5E38;&#x662F;&#x8BE5;&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x7684;index.js&#xFF09;&#xFF0C;&#x8981;&#x5F15;&#x7528;&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#x7684;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x90E8;&#x5206;&#xFF0C;&#x90FD;&#x9700;&#x8981;&#x7ECF;&#x8FC7;&#x8FD9;&#x4E2A;js&#x3002;</p>
+<p>&#x597D;&#x5904;&#x5C31;&#x662F;&#xFF0C;&#x5185;&#x90E8;&#x7684;&#x547D;&#x540D;&#x4E0D;&#x8BBA;&#x518D;&#x600E;&#x4E48;&#x53D8;&#xFF0C;&#x90FD;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x5176;&#x4ED6;&#x6A21;&#x5757;&#x5BF9;&#x8BE5;&#x6A21;&#x5757;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x5F00;&#x53D1;&#x8005;&#x53EA;&#x9700;&#x8981;&#x7EF4;&#x62A4;&#x597D;&#x5BF9;&#x5916;&#x7684;js &#x548C; &#x5404;&#x4E2A;&#x90E8;&#x5206;&#x7684;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#x5373;&#x53EF;&#xFF0C;&#x4ECE;&#x800C;&#x8FBE;&#x6210;&#x9AD8;&#x5185;&#x805A;&#x4F4E;&#x8026;&#x5408;&#x7684;&#x76EE;&#x6807;&#x3002;</p>
+<h2 id="4-&#x72B6;&#x6001;&#x6811;&#x7684;&#x8BBE;&#x8BA1;">4. &#x72B6;&#x6001;&#x6811;&#x7684;&#x8BBE;&#x8BA1;</h2>
+<p>&#x72B6;&#x6001;&#x6811;&#x7684;&#x8BBE;&#x8BA1;&#x9700;&#x8981;&#x9075;&#x5FAA;&#x7684;&#x51E0;&#x4E2A;&#x539F;&#x5219;&#xFF1A;</p>
+<ul>
+<li>&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x4FEE;&#x6539;&#x67D0;&#x4E00;&#x5757;&#x6570;&#x636E;</li>
+<li>&#x907F;&#x514D;&#x5197;&#x4F59;&#x6570;&#x636E;</li>
+<li>&#x6811;&#x5F62;&#x7ED3;&#x6784;&#x6241;&#x5E73;</li>
+</ul>
+<h2 id="5-todo&#x5E94;&#x7528;&#x5B9E;&#x4F8B;">5. Todo&#x5E94;&#x7528;&#x5B9E;&#x4F8B;</h2>
+<p>&#x53C2;&#x8003;&#x4F5C;&#x8005;&#x7684;&#x4EE3;&#x7801;&#x5E93;&#x7B2C;&#x56DB;&#x7AE0;&#x8FDB;&#x884C;&#x52A8;&#x624B;&#x5B9E;&#x8DF5;&#xFF0C;&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;&#x4E86;&#x7B80;&#x5355;&#x7684;&#x7248;&#x672C;&#xFF1A;<a href="git@github.com:tangyefei/react-redux-todos.git">https://github.com/tangyefei/react-redux-todos</a></p>
+<p>&#x8FD9;&#x91CC;&#x4EC5;&#x4ECB;&#x7ECD;&#x4E00;&#x4E9B;&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x5730;&#x65B9;&#xFF1A;</p>
+<ul>
+<li>&#x4E3A;&#x4E86;&#x5728;React&#x4F7F;&#x7528;Redux&#xFF0C;&#x9700;&#x8981;&#x5B89;&#x88C5; redux &#x548C; react-redux</li>
+<li>&#x4E3A;&#x4E86;&#x5728;&#x6240;&#x6709;&#x7EC4;&#x4EF6;&#x4E0A;&#x90FD;&#x80FD;&#x62FF;&#x5230;Store&#x7684;&#x6570;&#x636E;&#xFF0C;&#x9700;&#x8981;&#x5728;&#x7EC4;&#x4EF6;&#x7684;&#x6839;&#x7684;&#x4F4D;&#x7F6E;&#x5D4C;&#x5957;&#x4E00;&#x5C42; <code>&lt;Provider store={store}&gt;&lt;/Provider&gt;</code></li>
+<li>&#x5173;&#x4E8E;Store&#xFF0C;&#x6211;&#x4EEC;&#x4F7F;&#x7528;createStore&#x6765;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Store&#xFF0C;&#x5176;&#x4E2D;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x4F7F;&#x7528;combineReducers&#x751F;&#x6210;&#x7684;&#x7ED3;&#x6784;&#xFF0C;&#x6307;&#x660E;&#x4E86; <code>key: value</code>&#x7684;&#x5173;&#x7CFB;&#xFF0C;key&#x4EE3;&#x8868;state&#x4E2D;&#x7684;&#x6570;&#x636E;&#xFF0C;value&#x4EE3;&#x8868;&#x4E86;&#x80FD;&#x83B7;&#x53D6;&#x5230;&#x4FEE;&#x6539;&#x6743;&#x7684;reducer</li>
+<li>&#x5173;&#x4E8E;reducer&#xFF0C;&#x5982;&#x679C;&#x4E5F;&#x5B66;&#x4F5C;&#x8005;&#x7528;switch&#x6765;&#x505A;action.type&#x7684;&#x4E0D;&#x540C;&#x5904;&#x7406;&#xFF0C;&#x5FC5;&#x987B;&#x8981;&#x6709;default&#x7684;&#x5904;&#x7406;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x8FD0;&#x884C;&#x4E0D;&#x6B63;&#x5E38;</li>
+<li>&#x5173;&#x4E8E;reducer&#xFF0C;&#x6BCF;&#x4E00;&#x4E2A;reducer&#x4E0D;&#x4F1A;&#x76F4;&#x63A5;&#x4FEE;&#x6539;reducer&#xFF0C;&#x800C;&#x662F;&#x901A;&#x8FC7;&#x64CD;&#x4F5C;state&#x5F97;&#x5230;&#x65B0;&#x503C;&#x7136;&#x540E;return&#x4F5C;&#x4E3A;state&#x7684;&#x503C;</li>
+<li>&#x5173;&#x4E8E;action&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x628A;&#x5B83;&#x5F53;&#x505A;views&#x8C03;&#x7528;reducer&#x65F6;&#xFF0C;&#x7528;&#x6765;&#x4F20;&#x9012;&#x7684;&#x4E00;&#x7EC4;&#x5C01;&#x88C5;&#x6570;&#x636E;&#xFF0C;&#x91CC;&#x9762;&#x4F1A;&#x5C06;view&#x4F20;&#x9012;&#x7684;&#x6570;&#x636E;&#x53D8;&#x6210;&#x66F4;&#x5B8C;&#x6574;&#x7684;&#x5BF9;&#x8C61;&#x7ED3;&#x6784;</li>
+<li>&#x5173;&#x4E8E;views&#x4E2D;&#x5982;&#x4F55;&#x6620;&#x5C04;&#xFF0C;<code>react-redux</code>&#x7EC4;&#x4EF6;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;<code>connect(mapStateToProps, mapDispatchToProps)(component)</code>&#x65B9;&#x6CD5;<ul>
+<li>mapStateToProps&#x51FD;&#x6570;&#x8D1F;&#x8D23;&#x628A;store&#x7684;&#x6570;&#x636E;&#x6620;&#x5C04;&#x5230;&#x7EC4;&#x4EF6;&#x4E2D;&#xFF0C;reducer&#x76F4;&#x63A5;&#x62FF;&#x5230;&#x4E86;Store&#x4E2D;&#x7684;&#x5BF9;&#x5E94;&#x6570;&#x636E;&#xFF08;&#x5373;mapStateToProps&#x65B9;&#x6CD5;&#x7684;state&#xFF09;&#xFF0C;state&#x4E2D;&#x5373;&#x53EF;&#x53D6;&#x5230;&#x503C;</li>
+<li>mapDispatchToProps&#x51FD;&#x6570;&#x8D1F;&#x8D23;&#x628A;&#x672C;&#x5730;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x6620;&#x5C04;&#x5230;&#x5177;&#x4F53;&#x7684;action&#x7684;&#x89E6;&#x53D1;&#xFF08;dispatch&#xFF09;&#xFF0C;&#x5728;&#x8FD9;&#x91CC;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x5F15;&#x5165;&#x9700;&#x8981;dispatch&#x7684;action&#x7C7B;&#x578B;</li>
+<li>&#x4F7F;&#x7528;connect&#x7684;&#x7EC4;&#x4EF6;&#x7684;&#x5B9A;&#x4E49;&#x65B9;&#x5F0F;&#x9700;&#x8981;&#x4FEE;&#x6539;&#xFF0C;&#x56E0;&#x4E3A;mapStateToProps, mapDispatchToProps&#x63D0;&#x4F9B;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#xFF0C;&#x90FD;&#x4F1A;&#x4F5C;&#x4E3A;&#x7EC4;&#x4EF6;&#x7684;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x88AB;&#x4F20;&#x5165;&#xFF0C;&#x4F8B;&#xFF1A;<code>const TodoList = ({todos, onRemoveTodo})</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="6-&#x5F00;&#x53D1;&#x8F85;&#x52A9;&#x5DE5;&#x5177;">6. &#x5F00;&#x53D1;&#x8F85;&#x52A9;&#x5DE5;&#x5177;</h2>
+<h3 id="&#x6269;&#x5C55;&#x5305;">&#x6269;&#x5C55;&#x5305;</h3>
+<p>React Devtools&#x3001;Redux Devtools&#x3001;React Perf&#xFF08;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#x7EC4;&#x4EF6;&#x6E32;&#x67D3;&#x7684;&#x6027;&#x80FD;&#x95EE;&#x9898;&#xFF09;</p>
+<h3 id="redux-immutable-state-invariant">redux immutable state invariant</h3>
+<p>&#x53EF;&#x4EE5;&#x68C0;&#x67E5;&#x4E00;&#x4E9B;&#x79C1;&#x81EA;&#x4FEE;&#x6539;state&#x7684;&#x884C;&#x4E3A;&#x5E76;&#x7ED9;&#x51FA;&#x8B66;&#x544A;</p>
+<h3 id="&#x5177;&#x4F53;&#x5E94;&#x7528;">&#x5177;&#x4F53;&#x5E94;&#x7528;</h3>
+<p>&#x4F5C;&#x8005;&#x5728;&#x8BE5;&#x90E8;&#x5206;&#x4ECB;&#x7ECD;&#x4E86;&#x4F7F;&#x7528;&#x4E0A;&#x8FF0;&#x5DE5;&#x5177;&#x7684;&#x4E00;&#x4E9B;&#x5177;&#x4F53;&#x914D;&#x7F6E;&#xFF0C;&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x67E5;&#x9605;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="chapter-3.html" class="navigation navigation-prev " aria-label="Previous page: 第3章 从Flux到Redux">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="chapter-5.html" class="navigation navigation-next " aria-label="Next page: 第5章 React组件的性能优化">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"第4章 模块化React和Redux应用","level":"1.5","depth":1,"next":{"title":"第5章 React组件的性能优化","level":"1.6","depth":1,"path":"chapter-5.md","ref":"chapter-5.md","articles":[]},"previous":{"title":"第3章 从Flux到Redux","level":"1.4","depth":1,"path":"chapter-3.md","ref":"chapter-3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter-4.md","mtime":"2020-12-28T07:36:56.027Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-13T09:49:31.953Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

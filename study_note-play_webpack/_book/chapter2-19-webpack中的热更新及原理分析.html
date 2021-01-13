@@ -1,0 +1,855 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>19 webpack中的热更新及原理分析 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="chapter2-20-文件指纹策略：chunkhash、contenthash和hash.html" />
+    
+    
+    <link rel="prev" href="chapter2-18-webpack中的文件监听.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    极客时间：玩转webpack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    webpack与构建发展历史
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="chapter1-01-课程介绍.html">
+            
+                <a href="chapter1-01-课程介绍.html">
+            
+                    
+                    01 课程介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="chapter1-02-内容综述.html">
+            
+                <a href="chapter1-02-内容综述.html">
+            
+                    
+                    02 内容综述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="chapter1-03-为什么需要构建工具.html">
+            
+                <a href="chapter1-03-为什么需要构建工具.html">
+            
+                    
+                    03 为什么需要构建工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="chapter1-04-前端构建演变历程.html">
+            
+                <a href="chapter1-04-前端构建演变历程.html">
+            
+                    
+                    04 前端构建演变历程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="chapter1-05-为什么选择webpack.html">
+            
+                <a href="chapter1-05-为什么选择webpack.html">
+            
+                    
+                    05 为什么选择webpack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="chapter1-06-初识webpack.html">
+            
+                <a href="chapter1-06-初识webpack.html">
+            
+                    
+                    06 初识webpack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="chapter1-07-环境搭建：安装webapck.html">
+            
+                <a href="chapter1-07-环境搭建：安装webapck.html">
+            
+                    
+                    07 环境搭建：安装webapck
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="chapter1-08-webpack初体验：一个最简单的例子.html">
+            
+                <a href="chapter1-08-webpack初体验：一个最简单的例子.html">
+            
+                    
+                    08 webpack初体验：一个最简单的例子
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="chapter1-09-通过npm-script运行webpack.html">
+            
+                <a href="chapter1-09-通过npm-script运行webpack.html">
+            
+                    
+                    09 通过npm script运行webpack
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    webpack基础用法
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="chapter2-10-webpack核心概念之entry.html">
+            
+                <a href="chapter2-10-webpack核心概念之entry.html">
+            
+                    
+                    10 webpack核心概念之entry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="chapter2-11-webpack核心概念之output.html">
+            
+                <a href="chapter2-11-webpack核心概念之output.html">
+            
+                    
+                    11 webpack核心概念之output
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="chapter2-12-webpack核心概念之loaders.html">
+            
+                <a href="chapter2-12-webpack核心概念之loaders.html">
+            
+                    
+                    12 webpack核心概念之loaders
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="chapter2-13-webpack核心概念之plugins.html">
+            
+                <a href="chapter2-13-webpack核心概念之plugins.html">
+            
+                    
+                    13 webpack核心概念之plugins
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="chapter2-14-webpack核心概念之mode.html">
+            
+                <a href="chapter2-14-webpack核心概念之mode.html">
+            
+                    
+                    14 webpack核心概念之mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="chapter2-15-解析ECMAScript和React-JSX.html">
+            
+                <a href="chapter2-15-解析ECMAScript和React-JSX.html">
+            
+                    
+                    15 解析ECMAScript和React JSX
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="chapter2-16-解析CSS、Less和Sass.html">
+            
+                <a href="chapter2-16-解析CSS、Less和Sass.html">
+            
+                    
+                    16 解析CSS、Less和Sass
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="chapter2-17-解析图片和字体文件.html">
+            
+                <a href="chapter2-17-解析图片和字体文件.html">
+            
+                    
+                    17 解析图片和字体文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="chapter2-18-webpack中的文件监听.html">
+            
+                <a href="chapter2-18-webpack中的文件监听.html">
+            
+                    
+                    18 webpack中的文件监听
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.10" data-path="chapter2-19-webpack中的热更新及原理分析.html">
+            
+                <a href="chapter2-19-webpack中的热更新及原理分析.html">
+            
+                    
+                    19 webpack中的热更新及原理分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="chapter2-20-文件指纹策略：chunkhash、contenthash和hash.html">
+            
+                <a href="chapter2-20-文件指纹策略：chunkhash、contenthash和hash.html">
+            
+                    
+                    20 文件指纹策略：chunkhash、contenthash和hash
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="chapter2-21-HTML的JS注入和代码压缩.html">
+            
+                <a href="chapter2-21-HTML的JS注入和代码压缩.html">
+            
+                    
+                    21 HTML的JS注入、HTML/CSS/JS的代码压缩
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    webpack进阶用法
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="chapter3-22-自动清理构建目录产物.html">
+            
+                <a href="chapter3-22-自动清理构建目录产物.html">
+            
+                    
+                    22 自动清理构建目录产物
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="chapter3-23-PostCSS插件和autoprefixer自动补全CSS3前缀.html">
+            
+                <a href="chapter3-23-PostCSS插件和autoprefixer自动补全CSS3前缀.html">
+            
+                    
+                    23 PostCSS插件和autoprefixer自动补全CSS3前缀
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="chapter3-24-移动端CSS自动自动转化为rem.html">
+            
+                <a href="chapter3-24-移动端CSS自动自动转化为rem.html">
+            
+                    
+                    24 移动端CSS自动自动转化为rem
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="chapter3-25-多页面应用通用打包方案.html">
+            
+                <a href="chapter3-25-多页面应用通用打包方案.html">
+            
+                    
+                    25 多页面应用通用打包方案
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="chapter3-26-静态资源内联.html">
+            
+                <a href="chapter3-26-静态资源内联.html">
+            
+                    
+                    26 静态资源内联
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="chapter3-27-使用sourcemap.html">
+            
+                <a href="chapter3-27-使用sourcemap.html">
+            
+                    
+                    27 使用sourcemap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="chapter3-28-提取页面公共资源.html">
+            
+                <a href="chapter3-28-提取页面公共资源.html">
+            
+                    
+                    28 提取页面公共资源
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="chapter3-29-TreeShaking的使用和原理分析.html">
+            
+                <a href="chapter3-29-TreeShaking的使用和原理分析.html">
+            
+                    
+                    29 TreeShaking的使用和原理分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="chapter3-30-Scope-Hoisting使用和原理分析.html">
+            
+                <a href="chapter3-30-Scope-Hoisting使用和原理分析.html">
+            
+                    
+                    30 Scope-Hoisting使用和原理分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="chapter3-31-代码分割和动态import.html">
+            
+                <a href="chapter3-31-代码分割和动态import.html">
+            
+                    
+                    31 代码分割和动态import
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="chapter3-32-在webpack中使用ESLint.html">
+            
+                <a href="chapter3-32-在webpack中使用ESLint.html">
+            
+                    
+                    32 在webpack中使用ESLint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.12" data-path="chapter3-33-打包组件和基础库.html">
+            
+                <a href="chapter3-33-打包组件和基础库.html">
+            
+                    
+                    33 打包组件和基础库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.13" data-path="chapter3-34-35-Webpack实现SSR打包.html">
+            
+                <a href="chapter3-34-35-Webpack实现SSR打包.html">
+            
+                    
+                    34-35 Webpack实现SSR打包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.14" data-path="chapter3-36-优化构建命令行的显示日志.html">
+            
+                <a href="chapter3-36-优化构建命令行的显示日志.html">
+            
+                    
+                    36 优化构建命令行的显示日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.15" data-path="chaptere-37-构建异常和中断处理.md">
+            
+                <span>
+            
+                    
+                    37 构建异常和中断处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    编写可维护的webpack构建配置
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="chapter4-38-构建配置包设计.html">
+            
+                <a href="chapter4-38-构建配置包设计.html">
+            
+                    
+                    38 构建配置包设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="chapter4-39-功能模块设计和目录结构.html">
+            
+                <a href="chapter4-39-功能模块设计和目录结构.html">
+            
+                    
+                    39 功能模块设计和目录结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >19 webpack中的热更新及原理分析</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="19-webpack&#x4E2D;&#x7684;&#x70ED;&#x66F4;&#x65B0;&#x53CA;&#x539F;&#x7406;&#x5206;&#x6790;">19-webpack&#x4E2D;&#x7684;&#x70ED;&#x66F4;&#x65B0;&#x53CA;&#x539F;&#x7406;&#x5206;&#x6790;</h2>
+<h3 id="&#x70ED;&#x66F4;&#x65B0;-webpack-dev-server">&#x70ED;&#x66F4;&#x65B0; webpack-dev-server</h3>
+<ul>
+<li>WDS&#x4E0D;&#x5237;&#x65B0;&#x6D4F;&#x89C8;&#x5668;</li>
+<li>WDS&#x4E0D;&#x8F93;&#x51FA;&#x6587;&#x4EF6;&#xFF0C;&#x800C;&#x662F;&#x5B58;&#x653E;&#x5728;&#x5185;&#x5B58;&#x4E2D;</li>
+<li>&#x9700;&#x8981;&#x4F7F;&#x7528;&#x4F7F;&#x7528;webpack&#x5185;&#x7F6E;&#x7684;HotModuleReplacementPlugin&#x63D2;&#x4EF6;</li>
+</ul>
+<p>&#x53EA;&#x9700;&#x8981;&#x5B89;&#x88C5; webpack-dev-server&#x5373;&#x53EF;</p>
+<pre><code>$ npm i webpack-dev-server -D
+</code></pre><p>&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x589E;&#x52A0;devServer&#x9009;&#x9879; &#x548C; &#x4FEE;&#x6539;plugins&#x90E8;&#x5206;&#xFF1A;</p>
+<pre><code>//&#x5DF2;&#x7701;&#x7565;&#x65E0;&#x5173;&#x4EE3;&#x7801;
+
+const webpack  = require(&apos;webpack&apos;);
+
+devServer: {
+    contentBase: &quot;./dist&quot;,
+    hot: true
+},
+plugins: [new webpack.HotModuleReplacementPlugin()],
+</code></pre><p>package.json&#x7684;scripts&#x4E2D;&#x589E;&#x52A0;&#x547D;&#x4EE4;</p>
+<pre><code>
+&quot;dev&quot;: &quot;webpack-dev-server --open&quot;
+</code></pre><p>&#x542F;&#x52A8; npm run dev&#x540E;&#xFF0C;&#x4FEE;&#x6539;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#x6D4F;&#x89C8;&#x5668;&#x81EA;&#x52A8;&#x66F4;&#x65B0;&#x4E86;&#x3002;</p>
+<p><strong>&#x56E0;&#x4E3A;&#x4F8B;&#x5B50;&#x7B80;&#x5355;&#xFF0C;&#x4FEE;&#x6539;&#x540E;&#x770B;&#x4F3C;&#x6574;&#x4E2A;&#x6D4F;&#x89C8;&#x5668;&#x90FD;&#x5237;&#x65B0;&#x4E86;&#xFF0C;&#x548C;&#x4E0D;&#x5237;&#x65B0;&#x6D4F;&#x89C8;&#x5668;&#x8FD9;&#x4E2A;&#x8BF4;&#x6CD5;&#x6709;&#x6240;&#x4E0D;&#x7B26;&#x5408;&#xFF1F;</strong></p>
+<h3 id="&#x70ED;&#x66F4;&#x65B0;&#x539F;&#x7406;&#xFF08;hmr&#xFF09;">&#x70ED;&#x66F4;&#x65B0;&#x539F;&#x7406;&#xFF08;HMR&#xFF09;</h3>
+<p><img src="https://blog-1258030304.cos.ap-guangzhou.myqcloud.com/books/play-webpack/webpack-dev-server-theory.png" alt="&#x70ED;&#x66F4;&#x65B0;&#x539F;&#x7406;"></p>
+<p>&#x539F;&#x7406;&#x5206;&#x4E3A;&#x4E24;&#x6761;&#x7EBF;</p>
+<ol>
+<li>Webpack Compiler&#x5C06;&#x8D44;&#x6E90;&#x7F16;&#x8BD1;&#x6210;bundle&#x6587;&#x4EF6;&#xFF0C;Bundle Server&#x63D0;&#x4F9B;&#x7ED9;&#x6D4F;&#x89C8;&#x5668;&#x8BBF;&#x95EE;&#xFF1A;1-2-A-B</li>
+<li>&#x7F16;&#x8BD1;&#x6539;&#x52A8;&#x6587;&#x4EF6;&#x6587;&#x4EF6;&#xFF0C;HMR Server&#x901A;&#x77E5;&#x6D4F;&#x89C8;&#x5668;&#x7AEF;&#x7684;HRM Runtime&#x83B7;&#x53D6;&#x66F4;&#x65B0;&#xFF1A;1-2-3-4</li>
+</ol>
+<h3 id="&#x70ED;&#x66F4;&#x65B0;&#xFF1A;webpack-dev-middleware">&#x70ED;&#x66F4;&#x65B0;&#xFF1A;webpack-dev-middleware</h3>
+<p>&#x5B83;&#x7684;&#x4F18;&#x70B9;&#x5728;&#x4E8E;&#x81EA;&#x5DF1;&#x53EF;&#x4EE5;&#x63A7;&#x5236;&#x4E2D;&#x95F4;&#x8FC7;&#x7A0B;&#xFF0C;&#x66F4;&#x9002;&#x5408;&#x7075;&#x6D3B;&#x5B9A;&#x5236;&#x7684;&#x7528;&#x6237;&#x3002;</p>
+<pre><code>$ npm i webpack-dev-middleware -D
+</code></pre><p>&#x65B0;&#x5EFA; webpack-server.js</p>
+<pre><code>const webpack = require(&apos;webpack&apos;);
+const middleware = require(&apos;webpack-dev-middleware&apos;);
+const config = require(&quot;./webpack.config.js&quot;);
+const compiler = webpack(config);
+const express = require(&apos;express&apos;);
+const app = express();
+
+app.use(
+  middleware(compiler, {
+    publicPath: config.output.publicPath
+  })
+);
+
+app.listen(3000, () =&gt; console.log(&apos;Example app listening on port 3000!&apos;));
+</code></pre><p>&#x6CE8;&#x91CA;&#x6389; webpack.config.js &#x4E2D;&#x7684; devServer &#x548C; HotModuleReplacementPlugin&#x540E;&#xFF0C;&#x6267;&#x884C;&#x3002;</p>
+<p>&#x8BBF;&#x95EE; <a href="http://localhost:3000/index.html&#xFF0C;&#x5947;&#x602A;&#x8BBF;&#x95EE;&#x7684;&#x662F;" target="_blank">http://localhost:3000/index.html&#xFF0C;&#x5947;&#x602A;&#x8BBF;&#x95EE;&#x7684;&#x662F;</a> Cannot GET /index.html&#x3002;</p>
+<p><strong>&#x4E3A;&#x4EC0;&#x4E48;&#x5462;&#xFF1F;</strong></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="chapter2-18-webpack中的文件监听.html" class="navigation navigation-prev " aria-label="Previous page: 18 webpack中的文件监听">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="chapter2-20-文件指纹策略：chunkhash、contenthash和hash.html" class="navigation navigation-next " aria-label="Next page: 20 文件指纹策略：chunkhash、contenthash和hash">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"19 webpack中的热更新及原理分析","level":"1.3.10","depth":2,"next":{"title":"20 文件指纹策略：chunkhash、contenthash和hash","level":"1.3.11","depth":2,"path":"chapter2-20-文件指纹策略：chunkhash、contenthash和hash.md","ref":"./chapter2-20-文件指纹策略：chunkhash、contenthash和hash.md","articles":[]},"previous":{"title":"18 webpack中的文件监听","level":"1.3.9","depth":2,"path":"chapter2-18-webpack中的文件监听.md","ref":"./chapter2-18-webpack中的文件监听.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter2-19-webpack中的热更新及原理分析.md","mtime":"2020-12-28T07:36:56.075Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-13T08:59:22.572Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

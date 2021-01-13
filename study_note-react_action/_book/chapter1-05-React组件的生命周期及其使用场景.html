@@ -1,0 +1,674 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>05 React组件的生命周期及其使用场景 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="chapter1-07-组件设计模式：高阶组件和函数作为子组件.html" />
+    
+    
+    <link rel="prev" href="chapter1-04-JSX的本质：不会模板引擎，而是语法糖.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    极客时间：React实战进阶
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    第1章 React基础
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="chapter1-01-课程介绍.html">
+            
+                <a href="chapter1-01-课程介绍.html">
+            
+                    
+                    01 课程介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="chapter1-02-历史背景及特性介绍.html">
+            
+                <a href="chapter1-02-历史背景及特性介绍.html">
+            
+                    
+                    02 历史背景及特性介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="chapter1-03-以组件方式考虑UI的构建.html">
+            
+                <a href="chapter1-03-以组件方式考虑UI的构建.html">
+            
+                    
+                    03 以组件方式考虑UI的构建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="chapter1-04-JSX的本质：不会模板引擎，而是语法糖.html">
+            
+                <a href="chapter1-04-JSX的本质：不会模板引擎，而是语法糖.html">
+            
+                    
+                    04 JSX的本质：不会模板引擎，而是语法糖
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.5" data-path="chapter1-05-React组件的生命周期及其使用场景.html">
+            
+                <a href="chapter1-05-React组件的生命周期及其使用场景.html">
+            
+                    
+                    05 React组件的生命周期及其使用场景
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="chapter1-07-组件设计模式：高阶组件和函数作为子组件.html">
+            
+                <a href="chapter1-07-组件设计模式：高阶组件和函数作为子组件.html">
+            
+                    
+                    07 组件设计模式：高阶组件和函数作为子组件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="chapter1-08-理解ContextAPI极其使用场景.html">
+            
+                <a href="chapter1-08-理解ContextAPI极其使用场景.html">
+            
+                    
+                    08 理解ContextAPI极其使用场景
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="chapter1-09-使用脚手架工具创建React项目.html">
+            
+                <a href="chapter1-09-使用脚手架工具创建React项目.html">
+            
+                    
+                    09 使用脚手架工具创建React项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="chapter1-10-打包和部署.html">
+            
+                <a href="chapter1-10-打包和部署.html">
+            
+                    
+                    10 打包和部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    第2章 React生态圈
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="chapter2-11-前端为何需要状态管理库.html">
+            
+                <a href="chapter2-11-前端为何需要状态管理库.html">
+            
+                    
+                    11 前端为何需要状态管理库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="chapter2-12-深入理解Store、Action、Reducer.html">
+            
+                <a href="chapter2-12-深入理解Store、Action、Reducer.html">
+            
+                    
+                    12 深入理解Store、Action、Reducer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="chapter2-13-在React中使用Redux.html">
+            
+                <a href="chapter2-13-在React中使用Redux.html">
+            
+                    
+                    13 在React中使用Redux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="chapter2-14-理解异步Action、Redux中间件.html">
+            
+                <a href="chapter2-14-理解异步Action、Redux中间件.html">
+            
+                    
+                    14 理解异步Action、Redux中间件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="chapter2-15-如何组织Action和Reducer.html">
+            
+                <a href="chapter2-15-如何组织Action和Reducer.html">
+            
+                    
+                    15 如何组织Action和Reducer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="chapter2-16-理解不可变数据.html">
+            
+                <a href="chapter2-16-理解不可变数据.html">
+            
+                    
+                    16 理解不可变数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="chapter2-17-React-Router-1-路由不只是页面切换，更是代码组织的方式.html">
+            
+                <a href="chapter2-17-React-Router-1-路由不只是页面切换，更是代码组织的方式.html">
+            
+                    
+                    17 React-Router(1)：路由不只是页面切换，更是代码组织的方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="chapter2-18-React-Router-2-参数定义，嵌套路由的使用场景.html">
+            
+                <a href="chapter2-18-React-Router-2-参数定义，嵌套路由的使用场景.html">
+            
+                    
+                    18 React-Router(2)：参数定义，嵌套路由的使用场景
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="chapter2-19-UI组件库对比和介绍.html">
+            
+                <a href="chapter2-19-UI组件库对比和介绍.html">
+            
+                    
+                    19 UI组件库对比和介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="chapter2-20-使用Next.js创建React同构应用.html">
+            
+                <a href="chapter2-20-使用Next.js创建React同构应用.html">
+            
+                    
+                    20 使用Next.js创建React同构应用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="chapter2-21-使用Jest-Enzyme等工具进行单元测试.html">
+            
+                <a href="chapter2-21-使用Jest-Enzyme等工具进行单元测试.html">
+            
+                    
+                    21 使用Jest, Enzyme等工具进行单元测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="chapter2-22-常用开发调试工具.html">
+            
+                <a href="chapter2-22-常用开发调试工具.html">
+            
+                    
+                    22 常用开发调试工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    第3章 构建可维护可扩展的前端应用
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="chapter3-23-26-前端项目的理想架构.html">
+            
+                <a href="chapter3-23-26-前端项目的理想架构.html">
+            
+                    
+                    23-26 前端项目的架构和具体实践
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="chapter3-27-28-Rekit的使用.html">
+            
+                <a href="chapter3-27-28-Rekit的使用.html">
+            
+                    
+                    27-28 使用Rekit
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >05 React组件的生命周期及其使用场景</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="05-react&#x7EC4;&#x4EF6;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x53CA;&#x5176;&#x4F7F;&#x7528;&#x573A;&#x666F;">05 React&#x7EC4;&#x4EF6;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x53CA;&#x5176;&#x4F7F;&#x7528;&#x573A;&#x666F;</h2>
+<p><img src="https://blog-1258030304.cos.ap-guangzhou.myqcloud.com/books/react-action/life-cycle.jpeg" alt="&#x751F;&#x547D;&#x5468;&#x671F;"></p>
+<h3 id="constructor">constructor</h3>
+<ol>
+<li>&#x7528;&#x4E8E;&#x521D;&#x59CB;&#x5316;&#x5185;&#x90E8;&#x72B6;&#x6001;&#xFF0C;&#x5F88;&#x5C11;&#x4F7F;&#x7528;</li>
+<li>&#x552F;&#x4E00;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4FEE;&#x6539; state &#x7684;&#x5730;&#x65B9;&#xFF0C;&#x5176;&#x4ED6;&#x5730;&#x65B9;&#x9700;&#x8981;&#x7528;setState</li>
+</ol>
+<h3 id="getderivedstatefromprops">getDerivedStateFromProps</h3>
+<ol>
+<li>&#x5F53;state &#x9700;&#x8981;&#x4ECE; props &#x521D;&#x59CB;&#x5316;&#x65F6;&#x4F7F;&#x7528;</li>
+<li>&#x5C3D;&#x91CF;&#x4E0D;&#x8981;&#x4F7F;&#x7528;&#xFF1A;&#x7EF4;&#x62A4;&#x4E24;&#x8005;&#x72B6;&#x6001;&#x4E00;&#x81F4;&#x6027;&#x4F1A;&#x589E;&#x52A0;&#x590D;&#x6742;&#x5EA6;</li>
+<li>&#x6BCF;&#x6B21; render &#x90FD;&#x4F1A;&#x8C03;&#x7528;</li>
+<li>&#x5178;&#x578B;&#x573A;&#x666F;&#xFF1A;&#x8868;&#x5355;&#x63A7;&#x4EF6;&#x83B7;&#x53D6;&#x9ED8;&#x8BA4;&#x503C;</li>
+</ol>
+<h3 id="componentdidmount">componentDidMount</h3>
+<ol>
+<li>UI&#x6E32;&#x67D3;&#x5B8C;&#x6210;&#x540E;&#x8C03;&#x7528;</li>
+<li>&#x53EA;&#x6267;&#x884C;&#x4E00;&#x6B21;</li>
+<li>&#x5178;&#x578B;&#x573A;&#x666F;&#xFF1A;&#x83B7;&#x53D6;&#x5916;&#x90E8;&#x8D44;&#x6E90;</li>
+</ol>
+<h3 id="componentwillunmount">componentWillUnmount</h3>
+<ol>
+<li>&#x7EC4;&#x4EF6;&#x88AB;&#x79FB;&#x9664;&#x65F6;&#x8C03;&#x7528;</li>
+<li>&#x4F7F;&#x7528;&#x573A;&#x666F;&#xFF1A;&#x8D44;&#x6E90;&#x91CA;&#x653E;</li>
+</ol>
+<h3 id="getsnapshotbeforeupdate">getSnapshotBeforeUpdate</h3>
+<ol>
+<li>&#x5728;&#x9875;&#x9762; render &#x4E4B;&#x524D;&#x8C03;&#x7528;&#xFF0C;state &#x5DF2;&#x7ECF;&#x66F4;&#x65B0;</li>
+<li>&#x5178;&#x578B;&#x573A;&#x666F;&#xFF1A;&#x83B7;&#x53D6;render&#x4E4B;&#x524D;&#x7684;DOM&#x72B6;&#x6001;</li>
+</ol>
+<h3 id="componentdidupdate">componentDidUpdate</h3>
+<ol>
+<li>&#x6BCF;&#x6B21;UI&#x66F4;&#x65B0;&#x65F6;&#x5019;&#x88AB;&#x8C03;&#x7528;</li>
+<li>&#x5178;&#x578B;&#x573A;&#x666F;&#xFF1A;&#x9875;&#x9762;&#x9700;&#x8981;&#x6839;&#x636E;props&#x53D8;&#x5316;&#x91CD;&#x65B0;&#x83B7;&#x53D6;&#x6570;&#x636E;</li>
+</ol>
+<h3 id="shouldcomponentupdate">shouldComponentUpdate</h3>
+<ol>
+<li>&#x51B3;&#x5B9A;Virtual DOM&#x662F;&#x5426;&#x8981;&#x91CD;&#x7ED8;</li>
+<li>&#x4E00;&#x822C;&#x53EF;&#x7531;PureComponent&#x81EA;&#x52A8;&#x5B9E;&#x73B0;</li>
+<li>&#x5178;&#x578B;&#x573A;&#x666F;&#xFF1A;&#x6027;&#x80FD;&#x4F18;&#x5316;</li>
+</ol>
+<h3 id="&#x793A;&#x4F8B;1">&#x793A;&#x4F8B;1</h3>
+<p><a href="https://codesandbox.io/s/6n20nrzlxz" target="_blank">c03/Clock.js</a></p>
+<pre><code>import React from &quot;react&quot;;
+
+export default class Clock extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log(&quot;Clock constructed&quot;);
+    this.state = { date: new Date() };
+  }
+
+  componentDidMount() {
+    console.log(&quot;Clock did mount&quot;);
+    this.timerID = setInterval(() =&gt; this.tick(), 1000);
+  }
+
+  componentWillUnmount() {
+    console.log(&quot;Clock will unmount&quot;);
+    clearInterval(this.timerID);
+  }
+
+  componentDidUpdate() {
+    console.log(&quot;Clock did update&quot;);
+  }
+
+  tick() {
+    this.setState({
+      date: new Date(),
+    });
+  }
+
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;h1&gt;Hello, world!&lt;/h1&gt;
+        &lt;h2&gt;It is {this.state.date.toLocaleTimeString()}.&lt;/h2&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+</code></pre><p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x8F93;&#x51FA;&#x7684;&#x987A;&#x5E8F;&#x4E3A;&#xFF1A;</p>
+<pre><code>Clock constructed
+Clock did mount
+Clock did update
+</code></pre><h3 id="&#x793A;&#x4F8B;2">&#x793A;&#x4F8B;2</h3>
+<p><a href="https://codesandbox.io/s/6n20nrzlxz" target="_blank">c04/SnapshotSample.js</a></p>
+<p>&#x9ED8;&#x8BA4;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6BCF;&#x6B21;&#x63D2;&#x5165;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x9876;&#x66FF;&#x524D;&#x9762;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x9020;&#x6210;&#x5217;&#x8868;&#x5728;&#x5237;&#x65B0;&#x7684;&#x611F;&#x89C9;&#x3002;</p>
+<p>&#x6CE8;&#x91CA;&#x4EE3;&#x7801;&#x90E8;&#x5206;&#x53EF;&#x4EE5;&#x62FF;&#x5230;&#x754C;&#x9762;&#x66F4;&#x65B0;&#x4E4B;&#x524D;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x4ECE;&#x800C;&#x901A;&#x8FC7;&#x5904;&#x7406;&#xFF0C;&#x8BA9;&#x65B0;&#x589E;&#x6570;&#x636E;&#x5E73;&#x6ED1;&#x65E0;&#x611F;&#x77E5;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="chapter1-04-JSX的本质：不会模板引擎，而是语法糖.html" class="navigation navigation-prev " aria-label="Previous page: 04 JSX的本质：不会模板引擎，而是语法糖">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="chapter1-07-组件设计模式：高阶组件和函数作为子组件.html" class="navigation navigation-next " aria-label="Next page: 07 组件设计模式：高阶组件和函数作为子组件">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"05 React组件的生命周期及其使用场景","level":"1.2.5","depth":2,"next":{"title":"07 组件设计模式：高阶组件和函数作为子组件","level":"1.2.6","depth":2,"path":"chapter1-07-组件设计模式：高阶组件和函数作为子组件.md","ref":"./chapter1-07-组件设计模式：高阶组件和函数作为子组件.md","articles":[]},"previous":{"title":"04 JSX的本质：不会模板引擎，而是语法糖","level":"1.2.4","depth":2,"path":"chapter1-04-JSX的本质：不会模板引擎，而是语法糖.md","ref":"./chapter1-04-JSX的本质：不会模板引擎，而是语法糖.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter1-05-React组件的生命周期及其使用场景.md","mtime":"2020-12-28T07:36:56.121Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-13T09:10:09.971Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
